@@ -10168,6 +10168,7 @@ a:focus {
 }
 
 .topbar {
+    position: static;
   height: 4.375rem;
 }
 
