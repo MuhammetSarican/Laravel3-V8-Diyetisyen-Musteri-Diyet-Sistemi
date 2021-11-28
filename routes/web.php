@@ -29,6 +29,10 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
+Route::get('/admin/login',[\App\Http\Controllers\HomeController::class,'login'])->name('admin.login');
+Route::post('/admin/logincheck',[\App\Http\Controllers\HomeController::class,'logincheck'])->name('admin_logincheck');
+Route::get('/admin/logout',[\App\Http\Controllers\HomeController::class,'logout'])->name('admin_logout');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

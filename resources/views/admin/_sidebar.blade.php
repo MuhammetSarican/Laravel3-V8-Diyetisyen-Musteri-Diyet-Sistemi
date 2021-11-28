@@ -2,10 +2,13 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-
-        <div style="font-size: xx-small;" class="sidebar-brand-text mx-3">Admin Panel<br><hr>Diyetisyen<br>Müşteri Diyet Sistemi</div>
-    </a>
+        <div style="color: #cbd5e0" class="sidebar-brand-text mx-3"><br>Admin Panel<br><hr>Diyetisyen<br>Müşteri Diyet Sistemi<br></div>
+        <div class="info">
+            @auth
+                <hr><a href="#" class="sidebar-brand-text mx-3" style="color: #cbd5e0">{{Auth::user()->name}}</a>
+                <a href="{{route('admin_logout')}}" class="sidebar-brand-text mx-3" style="color: #cbd5e0">Logout</a><hr>
+            @endauth
+        </div>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
