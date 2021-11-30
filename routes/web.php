@@ -27,7 +27,7 @@ Route::get('/home', function () {
 
 Route::get('/admin', function () {
     return view('admin.index');
-});
+})->middleware([\App\Http\Middleware\Authenticate::class]);
 
 Route::get('/admin/login',[\App\Http\Controllers\HomeController::class,'login'])->name('admin.login');
 Route::post('/admin/logincheck',[\App\Http\Controllers\HomeController::class,'logincheck'])->name('admin_logincheck');
