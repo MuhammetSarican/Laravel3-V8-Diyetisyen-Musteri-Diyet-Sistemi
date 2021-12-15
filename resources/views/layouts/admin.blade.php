@@ -19,15 +19,15 @@
 </head>
 <body>
 Welcome To Admin Page
-@include('admin._header')
 <div id="wrapper">
     @include('admin._sidebar')
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-            @section('Content')
-            @show
-            @include('admin._footer')
+            @include('admin._header')
+            @section('content')
+                @show
         </div>
+        @include('admin._footer')
     </div>
 </div>
 </body>
