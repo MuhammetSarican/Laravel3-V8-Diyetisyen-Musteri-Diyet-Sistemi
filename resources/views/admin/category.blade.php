@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a> </li>
+                            <li class="breadcrumb-item"><a href="{route('admin_category')}}">Home</a> </li>
                             <li class="breadcrumb-item active">Category</li>
                         </ol>
                     </div>
@@ -67,7 +67,7 @@
                                             <td>{{$dl->parent_id}}</td>
                                             <td>{{$dl->title}}</td>
                                             <td>{{$dl->status}}</td>
-                                            <td>Edit</td>
+                                            <td><a href="{{route('admin_category_edit',['id'=>$dl->id])}}">Edit</a></td>
                                             <td><a href="{{route('admin_category_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
                                         </tr>
                                     @endforeach
