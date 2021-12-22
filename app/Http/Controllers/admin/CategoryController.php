@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $datalist=Category::all();
+        $datalist=DB::select('select * from categories');
  //       print_r($datalist);
 //        exit();
         return view('admin.category',['datalist'=>$datalist]);
