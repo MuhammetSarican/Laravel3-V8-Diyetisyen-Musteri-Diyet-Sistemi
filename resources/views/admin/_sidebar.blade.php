@@ -80,7 +80,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin_category')}}" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed" href="{{route('admin_products')}}" data-toggle="collapse" data-target="#collapsePages"
            aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Products</span>

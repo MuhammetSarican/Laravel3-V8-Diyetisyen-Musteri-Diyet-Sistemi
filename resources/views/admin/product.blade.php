@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Category List')
+@section('title','Product List')
 <head>
 
     <!-- Custom styles for this page -->
@@ -9,17 +9,18 @@
 
 @section('content')
     <!-- Content Wrapper -->
+    Productasınız.
     <div id="content-wrapper" class="d-flex flex-column">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h3>Categories</h3>
+                        <h3>Product</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{route('admin_category')}}">Home</a> </li>
-                            <li class="breadcrumb-item active">Category</li>
+                            <li class="breadcrumb-item"><a href="{route('admin_product')}}">Home</a> </li>
+                            <li class="breadcrumb-item active">Product</li>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +31,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <a href="{{route('admin_category_add')}}" class="btn btn-black--hover btn-info">Add Category</a>
+                        <a href="{{route('admin_product_add')}}" class="btn btn-black--hover btn-info">Add Product</a>
                     </div>
 
                         <div class="card-header py-3">
@@ -41,23 +42,28 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Id</th>
+                                        <th>Category</th>
+                                        <th>Title(s)</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                        <th>Status</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($datalist as $dl)
                                         <tr>
                                             <td>{{$dl->id}}</td>
-                                            <td>{{$dl->parent_id}}</td>
+                                            <td>{{$dl->category_id}}</td>
                                             <td>{{$dl->title}}</td>
+                                            <td>{{$dl->price}}</td>
+                                            <td>{{$dl->image}}</td>
                                             <td>{{$dl->status}}</td>
-                                            <td><a href="{{route('admin_category_edit',['id'=>$dl->id])}}">Edit</a></td>
-                                            <td><a href="{{route('admin_category_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
+                                            <td><a href="{{route('admin_product_edit',['id'=>$dl->id])}}">Edit</a></td>
+                                            <td><a href="{{route('admin_product_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
