@@ -1,12 +1,5 @@
 @extends('layouts.admin')
 @section('title','Category Edit')
-<head>
-
-    <!-- Custom styles for this page -->
-    <link href="{{asset('adminassets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-</head>
-
 @section('content')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -62,7 +55,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>
-                                        <select class="form-control select2" name="status" style="width: 100%">
+                                        <select class="form-control select2" name="status">
                                             <option selected="selected">{{$data->status}}</option>
                                             <option >False</option>
                                             <option>True</option>
@@ -74,18 +67,10 @@
                                 </div>
                             </form>
                     </div>
-                    <div class="container-fluid">
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- End of Content Wrapper -->
-{{--    <a class="scroll-to-top rounded" href="#page-top" style="display: none;">--}}
-{{--        <i class="fas fa-angle-up"></i>--}}
-{{--    </a>--}}
 @endsection
 @section('footer')
     <script src="{{asset('adminassets')}}/vendor/jquery/jquery.min.js"></script>

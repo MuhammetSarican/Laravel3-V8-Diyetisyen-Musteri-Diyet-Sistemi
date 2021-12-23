@@ -1,12 +1,5 @@
 @extends('layouts.admin')
 @section('title','Category Add')
-<head>
-
-    <!-- Custom styles for this page -->
-    <link href="{{asset('adminassets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-</head>
-
 @section('content')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -73,18 +66,10 @@
                                 </div>
                             </form>
                     </div>
-                    <div class="container-fluid">
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- End of Content Wrapper -->
-{{--    <a class="scroll-to-top rounded" href="#page-top" style="display: none;">--}}
-{{--        <i class="fas fa-angle-up"></i>--}}
-{{--    </a>--}}
 @endsection
 @section('footer')
     <script src="{{asset('adminassets')}}/vendor/jquery/jquery.min.js"></script>

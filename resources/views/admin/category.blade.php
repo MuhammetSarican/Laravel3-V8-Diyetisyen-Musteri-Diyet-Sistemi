@@ -1,11 +1,5 @@
 @extends('layouts.admin')
 @section('title','Category List')
-<head>
-
-    <!-- Custom styles for this page -->
-    <!--<link href="{{asset('adminassets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">-->
-
-</head>
 
 @section('content')
     <!-- Content Wrapper -->
@@ -33,40 +27,38 @@
                         <a href="{{route('admin_category_add')}}" class="btn btn-black--hover btn-info">Add Category</a>
                     </div>
 
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($datalist as $dl)
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <td>{{$dl->id}}</td>
+                                        <td>{{$dl->parent_id}}</td>
+                                        <td>{{$dl->title}}</td>
+                                        <td>{{$dl->status}}</td>
+                                        <td><a href="{{route('admin_category_edit',['id'=>$dl->id])}}">Edit</a></td>
+                                        <td><a href="{{route('admin_category_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($datalist as $dl)
-                                        <tr>
-                                            <td>{{$dl->id}}</td>
-                                            <td>{{$dl->parent_id}}</td>
-                                            <td>{{$dl->title}}</td>
-                                            <td>{{$dl->status}}</td>
-                                            <td><a href="{{route('admin_category_edit',['id'=>$dl->id])}}">Edit</a></td>
-                                            <td><a href="{{route('admin_category_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-
+                </div>
             </div>
         </div>
     </div>

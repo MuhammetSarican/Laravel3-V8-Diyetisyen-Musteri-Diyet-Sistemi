@@ -8,6 +8,9 @@
     <meta name="author" content="Kuşbabalı Mahoni">
 
     <title>@yield('title')</title>
+    @section('javascript')
+        @show
+
     <!-- Custom fonts for this template-->
     <link href="{{asset('adminassets')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link

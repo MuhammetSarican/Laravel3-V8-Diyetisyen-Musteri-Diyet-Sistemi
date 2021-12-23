@@ -1,12 +1,9 @@
 @extends('layouts.admin')
 @section('title','Product Add')
-<head>
-
-    <!-- Custom styles for this page -->
-    <link href="{{asset('adminassets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-</head>
-
+@section('javascript')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    @endsection
 @section('content')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -36,62 +33,63 @@
                         <h6 class="m-0 font-weight-bold text-primary">Add Product</h6>
                     </div>
                     <div class="card-body">
-                            <form role="form" action="{{route('admin_product_store')}}" method="post">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label>Parent</label>
-                                        <select class="form-control select2" name="category_id" style="width: 100%">
-                                            @foreach($datalist as $rs)
+                        <form role="form" action="{{route('admin_product_store')}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Parent</label>
+                                    <select class="form-control select2" name="category_id" style="width: 100%">
+                                        @foreach($datalist as $rs)
                                             <option value="{{$rs->id}}">{{$rs->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" name="title" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Keywords</label>
-                                        <input type="text" name="keywords" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <input type="text" name="description" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Price</label>
-                                        <input type="integer" name="price" value="0" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Detail</label>
-                                        <input name="detail" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="form-control select2" name="status" style="width: 100%">
-                                            <option selected="selected">False</option>
-                                            <option>True</option>
-                                        </select>
-                                    </div>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Add Product</button>
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" name="title" class="form-control">
                                 </div>
-                            </form>
-                    </div>
-                    <div class="container-fluid">
-
+                                <div class="form-group">
+                                    <label>Keywords</label>
+                                    <input type="text" name="keywords" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <input type="text" name="description" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="integer" name="price" value="0" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Detail</label>
+                                    <textarea id="summernote" class="form-control" name="detail"></textarea>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#summernote').summernote();
+                                        });
+                                    </script>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" name="image" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control select2" name="status" style="width: 100%">
+                                        <option selected="selected">False</option>
+                                        <option>True</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Add Product</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- End of Content Wrapper -->
-{{--    <a class="scroll-to-top rounded" href="#page-top" style="display: none;">--}}
-{{--        <i class="fas fa-angle-up"></i>--}}
-{{--    </a>--}}
 @endsection
 @section('footer')
     <script src="{{asset('adminassets')}}/vendor/jquery/jquery.min.js"></script>

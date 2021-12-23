@@ -1,12 +1,9 @@
 @extends('layouts.admin')
 @section('title','Product Edit')
-<head>
-
-    <!-- Custom styles for this page -->
-    <link href="{{asset('adminassets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-</head>
-
+@section('javascript')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    @endsection
 @section('content')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -36,7 +33,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Edit Product</h6>
                     </div>
                     <div class="card-body">
-                            <form role="form" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post">
+                            <form role="form" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -61,11 +58,23 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input type="integer" name="price" value="{{$data->price}}" class="form-control">
+                                        <input type="float" name="price" value="{{$data->price}}" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Detail</label>
-                                        <input name="detail" value="{{$data->detail}}" class="form-control">
+                                        <textarea id="summernote" name="detail" class="form-control">{{$data->detail}}</textarea>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#summernote').summernote();
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" name="image" class="form-control">
+                                        @if($data->image)
+                                            <img src="{{\Illuminate\Support\Facades\Storage::url($data->image)}}" height="75" alt="">
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>
@@ -81,18 +90,10 @@
                                 </div>
                             </form>
                     </div>
-                    <div class="container-fluid">
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- End of Content Wrapper -->
-{{--    <a class="scroll-to-top rounded" href="#page-top" style="display: none;">--}}
-{{--        <i class="fas fa-angle-up"></i>--}}
-{{--    </a>--}}
 @endsection
 @section('footer')
     <script src="{{asset('adminassets')}}/vendor/jquery/jquery.min.js"></script>

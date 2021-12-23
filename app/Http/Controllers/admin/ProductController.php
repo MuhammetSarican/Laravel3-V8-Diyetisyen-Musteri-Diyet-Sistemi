@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use function GuzzleHttp\Promise\all;
 
 
@@ -51,6 +52,7 @@ class ProductController extends Controller
         $data->status=$request->input('status');
         $data->category_id=$request->input('category_id');
         $data->detail=$request->input('detail');
+        $data->image=Storage::putFile('image',$request->file('image'));
         $data->price=$request->input('price');
         $data->user_id=Auth::id();
         $data->save();
@@ -76,7 +78,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product,$id)
     {
-        $data=Category::find($id);
+        $data=Product::find($id);
+//        print_r($data);
+//        exit();
         $datalist =Category::all();
         return view('admin.product_edit',['data'=>$data,'datalist'=>$datalist]);
     }
@@ -97,6 +101,7 @@ class ProductController extends Controller
         $data->status=$request->input('status');
         $data->category_id=$request->input('category_id');
         $data->detail=$request->input('detail');
+        $data->image=Storage::putFile('image',$request->file('image'));
         $data->price=$request->input('price');
         $data->user_id=Auth::id();
         $data->save();
@@ -111,7 +116,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product,$id)
     {
-        $data=Product::find($id);
-        $data->delete();
+        Product::destroy($id);
+        return redirect()->route('admin_products');
     }
 }

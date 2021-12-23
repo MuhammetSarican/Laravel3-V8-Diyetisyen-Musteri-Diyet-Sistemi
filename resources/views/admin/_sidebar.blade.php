@@ -73,25 +73,23 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin_category')}}" data-toggle="collapse" data-target="#collapsePages"
-           aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="{{route('admin_category')}}">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Category</span>
+            Category
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin_products')}}" data-toggle="collapse" data-target="#collapsePages"
-           aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="{{route('admin_products')}}">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Products</span>
+            Products
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin_category')}}" data-toggle="collapse" data-target="#collapsePages"
-           aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="{{route('admin_category')}}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Blank_Page</span>
         </a>
     </li>
 </ul>
-<!-- End of Sidebar -->
+{{--data-toggle="collapse" data-target="#collapsePages"--}}
+{{--aria-expanded="true" aria-controls="collapsePages"Aşağı Açılan Menü--}}
