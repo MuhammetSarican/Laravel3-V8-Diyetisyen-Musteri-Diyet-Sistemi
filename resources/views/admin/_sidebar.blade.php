@@ -1,14 +1,9 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
     <!-- Sidebar - Brand -->
-        <div style="color: #cbd5e0" class="sidebar-brand-text mx-3"><hr><a style="font-size: 20px;color: #99D3FF;text-decoration: none" href="{{route('admin_home')}}">&emsp;&emsp;Diyetisyen<br>Müşteri Diyet Sistemi<br></a> </div>
-        <div class="info">
-            @auth
-                <hr><a href="#" class="sidebar-brand-text mx-3" style="color: #cbd5e0">{{Auth::user()->name}}</a>
-                <a href="{{route('admin_logout')}}" class="sidebar-brand-text mx-3" style="color: #cbd5e0">Logout</a><hr>
-            @endauth
-        </div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin_home')}}">
+        <div class="sidebar-brand-text mx-3" style="font-family: 'Comic Sans MS'">Diyetisyen<br>Müşteri Diyet Sistemi</div>
+    </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
@@ -79,9 +74,9 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin_products')}}">
+        <a class="nav-link collapsed" href="{{route('admin_treatments')}}">
             <i class="fas fa-fw fa-folder"></i>
-            Products
+            Treatments
         </a>
     </li>
     <li class="nav-item">

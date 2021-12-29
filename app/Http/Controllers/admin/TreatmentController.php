@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Product;
+use App\Models\Treatment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use function GuzzleHttp\Promise\all;
 
 
-class ProductController extends Controller
+class TreatmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +20,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $datalist=Product::all();
-        //       print_r($datalist);
-//        exit();
-        return view('admin.product',['datalist'=>$datalist]);
+        $datalist=Treatment::all();
+//               print_r($datalist);
+//       exit();
+        return view('admin.treatment',['datalist'=>$datalist]);
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function create()
     {
         $datalist=Category::all();
-        return view('admin.product_add',['datalist'=>$datalist]);
+        return view('admin.treatment_add',['datalist'=>$datalist]);
     }
 
     /**
@@ -45,7 +45,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new Product;
+        $data=new Treatment;
         $data->title=$request->input('title');
         $data->keywords=$request->input('keywords');
         $data->description=$request->input('description');
@@ -56,16 +56,16 @@ class ProductController extends Controller
         $data->price=$request->input('price');
         $data->user_id=Auth::id();
         $data->save();
-        return redirect()->route('admin_products');
+        return redirect()->route('admin_treatments');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Treatment $treatment)
     {
         //
     }
@@ -73,28 +73,28 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product,$id)
+    public function edit(Treatment $treatment,$id)
     {
-        $data=Product::find($id);
+        $data=Treatment::find($id);
 //        print_r($data);
 //        exit();
         $datalist =Category::all();
-        return view('admin.product_edit',['data'=>$data,'datalist'=>$datalist]);
+        return view('admin.treatment_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product,$id)
+    public function update(Request $request, Treatment $treatment,$id)
     {
-        $data=Product::find($id);
+        $data=Treatment::find($id);
         $data->title=$request->input('title');
         $data->keywords=$request->input('keywords');
         $data->description=$request->input('description');
@@ -105,18 +105,18 @@ class ProductController extends Controller
         $data->price=$request->input('price');
         $data->user_id=Auth::id();
         $data->save();
-        return redirect()->route('admin_products');
+        return redirect()->route('admin_treatments');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product,$id)
+    public function destroy(Treatment $treatment,$id)
     {
-        Product::destroy($id);
-        return redirect()->route('admin_products');
+        Treatment::destroy($id);
+        return redirect()->route('admin_treatments');
     }
 }

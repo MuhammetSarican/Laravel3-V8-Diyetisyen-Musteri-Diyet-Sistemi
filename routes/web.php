@@ -48,14 +48,28 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('category/delete/{id}',[\App\Http\Controllers\Admin\CategoryController::class,'destroy'])->name('admin_category_delete');
     Route::get('category/show',[\App\Http\Controllers\Admin\CategoryController::class,'show'])->name('admin_category_show');
 
-    //Product
-    Route::prefix('product')->group(function (){
-        Route::get('/',[\App\Http\Controllers\Admin\ProductController::class,'index'])->name('admin_products');
-        Route::get('create',[\App\Http\Controllers\Admin\ProductController::class,'create'])->name('admin_product_add');
-        Route::post('store',[\App\Http\Controllers\Admin\ProductController::class,'store'])->name('admin_product_store');
-        Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductController::class,'edit'])->name('admin_product_edit');
-        Route::post('update/{id}',[\App\Http\Controllers\Admin\ProductController::class,'update'])->name('admin_product_update');
-        Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductController::class,'destroy'])->name('admin_product_delete');
-        Route::get('show',[\App\Http\Controllers\Admin\ProductController::class,'show'])->name('admin_product_show');
+    //Treatment
+    Route::prefix('treatment')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Admin\TreatmentController::class,'index'])->name('admin_treatments');
+        Route::get('create',[\App\Http\Controllers\Admin\TreatmentController::class,'create'])->name('admin_treatment_add');
+        Route::post('store',[\App\Http\Controllers\Admin\TreatmentController::class,'store'])->name('admin_treatment_store');
+        Route::get('edit/{id}',[\App\Http\Controllers\Admin\TreatmentController::class,'edit'])->name('admin_treatment_edit');
+        Route::post('update/{id}',[\App\Http\Controllers\Admin\TreatmentController::class,'update'])->name('admin_treatment_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\Admin\TreatmentController::class,'destroy'])->name('admin_treatment_delete');
+        Route::get('show',[\App\Http\Controllers\Admin\TreatmentController::class,'show'])->name('admin_treatment_show');
     });
+    //Image
+    Route::prefix('image')->group(function (){
+      //  Route::get('/',[\App\Http\Controllers\Admin\ImageController::class,'index'])->name('admin_treatments');
+        Route::get('create/{treatment_id}',[\App\Http\Controllers\Admin\ImageController::class,'create'])->name('admin_image_add');
+        Route::post('store/{treatment_id}',[\App\Http\Controllers\Admin\ImageController::class,'store'])->name('admin_image_store');
+        Route::get('delete/{id},{treatment_id}',[\App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('admin_image_delete');
+        Route::get('show',[\App\Http\Controllers\Admin\ImageController::class,'show'])->name('admin_image_show');
+    });
+    //Setting
+
+    Route::get('setting',[\App\Http\Controllers\Admin\SettingController::class,'index'])->name('admin_setting');
+    Route::post('setting/update',[\App\Http\Controllers\Admin\SettingController::class,'update'])->name('admin_setting_update');
+
+
 });

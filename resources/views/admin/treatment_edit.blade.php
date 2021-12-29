@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Product Edit')
+@section('title','Treatment Edit')
 @section('javascript')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -11,12 +11,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h3>Edit Product</h3>
+                        <h3>Edit Treatment</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin_products')}}">Home</a> </li>
-                            <li class="breadcrumb-item active">Edit Product</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin_treatments')}}">Home</a> </li>
+                            <li class="breadcrumb-item active">Edit Treatment</li>
                         </ol>
                     </div>
                 </div>
@@ -27,13 +27,13 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <a href="{{route('admin_product_add')}}" class="btn btn-black--hover btn-info">Add Product</a>
+                        <a href="{{route('admin_treatment_add')}}" class="btn btn-black--hover btn-info">Add Treatment</a>
                     </div>
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Edit Product</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Edit Treatment</h6>
                     </div>
                     <div class="card-body">
-                            <form role="form" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                            <form role="form" action="{{route('admin_treatment_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Update Product</button>
+                                    <button type="submit" class="btn btn-primary">Update Treatment</button>
                                 </div>
                             </form>
                     </div>

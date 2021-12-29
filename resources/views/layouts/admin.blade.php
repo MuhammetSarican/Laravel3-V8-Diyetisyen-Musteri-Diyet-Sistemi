@@ -20,8 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('adminassets')}}/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-<body>
-Welcome To Admin Page
+<body id="page-top">
 <div id="wrapper">
     @include('admin._sidebar')
     <div id="content-wrapper" class="d-flex flex-column">
@@ -33,5 +32,6 @@ Welcome To Admin Page
         @include('admin._footer')
     </div>
 </div>
+
 </body>
 
