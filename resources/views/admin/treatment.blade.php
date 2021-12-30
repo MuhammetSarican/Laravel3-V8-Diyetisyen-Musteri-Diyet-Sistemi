@@ -48,7 +48,9 @@
                                 @foreach($datalist as $dl)
                                     <tr>
                                         <td>{{$dl->id}}</td>
-                                        <td>{{$dl->category_id}}</td>
+                                        <td>
+                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($dl->category,$dl->category->title)}}
+                                        </td>
                                         <td>{{$dl->title}}</td>
                                         <td>{{$dl->price}}</td>
                                         <td>

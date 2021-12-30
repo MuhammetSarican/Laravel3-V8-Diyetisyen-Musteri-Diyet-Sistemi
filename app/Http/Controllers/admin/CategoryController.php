@@ -14,9 +14,22 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $appends=[
+        'getParentsTree'
+    ];
+    public static function getParentsTree($category,$title)
+    {
+        if($category->parent_id==0)
+        {
+            return $title;
+        }
+        $parent=Category::find($category->parent_id);
+        $title=$parent->title.'>'.$title;
+        return CategoryController::getParentsTree($parent,$title);
+    }
     public function index()
     {
-        $datalist=DB::select('select * from categories');
+        $datalist=Category::with('children')->get();
  //       print_r($datalist);
 //        exit();
         return view('admin.category',['datalist'=>$datalist]);
@@ -29,7 +42,7 @@ class CategoryController extends Controller
      */
     public function add()
     {
-        $datalist=DB::table('categories')->get()->where('parent_id',0);
+        $datalist=Category::with('children')->get();
     //    print_r($datalist);
       //  exit();
         return view('admin.category_add',['datalist'=>$datalist]);
@@ -85,7 +98,7 @@ class CategoryController extends Controller
     public function edit(Category $category,$id)
     {
         $data=Category::Find($id);
-        $datalist =DB::table('categories')->get()->where('parent_id',0);
+        $datalist=Category::with('children')->get();
         return view('admin.category_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 

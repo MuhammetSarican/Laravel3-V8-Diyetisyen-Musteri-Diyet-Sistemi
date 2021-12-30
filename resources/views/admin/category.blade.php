@@ -35,23 +35,24 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Id</th>
+                                    <th>Parent Id</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th colspan="2">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($datalist as $dl)
                                     <tr>
                                         <td>{{$dl->id}}</td>
-                                        <td>{{$dl->parent_id}}</td>
+                                        <td>
+                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($dl,$dl->title)}}
+                                        </td>
                                         <td>{{$dl->title}}</td>
                                         <td>{{$dl->status}}</td>
-                                        <td><a href="{{route('admin_category_edit',['id'=>$dl->id])}}">Edit</a></td>
-                                        <td><a href="{{route('admin_category_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
+                                        <td><a href="{{route('admin_category_edit',['id'=>$dl->id])}}"><img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
+                                        <td><a href="{{route('admin_category_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')"><img src="{{asset('adminassets/icons/trash.png')}}" height="25px"></a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

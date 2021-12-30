@@ -1,12 +1,12 @@
 @extends('layouts.home')
 
-@section('title','Laravel Diyetisyen Müşteri Diyet Sistemi')
+@section('title',$setting->title)
 
 @section('description')
-    Diyetle Sağlıklı bir Yaşama var mısın?
+    {{$setting->description}}
 @endsection
 
-@section('keywords','Diyetisyen,diyet,kilo,obezite')
+@section('keywords',$setting->keywords)
 
 @section('content')
     <!-- MAIN -->

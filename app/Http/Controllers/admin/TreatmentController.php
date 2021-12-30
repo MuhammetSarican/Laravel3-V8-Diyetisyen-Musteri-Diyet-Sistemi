@@ -101,6 +101,10 @@ class TreatmentController extends Controller
         $data->status=$request->input('status');
         $data->category_id=$request->input('category_id');
         $data->detail=$request->input('detail');
+        if($request->file('image')!=null)
+        {
+            $data->image=Storage::putFile('images',$request->file('image'));
+        }
         $data->image=Storage::putFile('image',$request->file('image'));
         $data->price=$request->input('price');
         $data->user_id=Auth::id();

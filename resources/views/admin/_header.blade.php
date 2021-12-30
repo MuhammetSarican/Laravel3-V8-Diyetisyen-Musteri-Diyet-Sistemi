@@ -188,7 +188,7 @@
                     Activity Log
                 </a>
                 @auth
-                    <a class="dropdown-item" href="{{route('admin_logout')}}">
+                    <a class="dropdown-item" href="{{route('all_logout')}}">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                     </a>

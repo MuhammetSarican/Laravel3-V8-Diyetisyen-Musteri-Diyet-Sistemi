@@ -13,13 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('home.index');
-});
+//Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+//Route::get('/home',[\App\Http\Controllers\HomeController::class,'index'])->name('homepage');
+//Route::get('/aboutus',[\App\Http\Controllers\HomeController::class,'aboutus'])->name('aboutus');
+
+//Route::get('/', function () {
+//    return view('home.index');
+//});
 
 Route::get('/home', function () {
     return view('layouts.home');
@@ -29,9 +33,17 @@ Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin_index')->middleware([\App\Http\Middleware\Authenticate::class]);
 
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home_index');
+
+Route::get('/aboutus',[\App\Http\Controllers\HomeController::class,'aboutus'])->name('home_aboutus');
+Route::get('/references',[\App\Http\Controllers\HomeController::class,'references'])->name('home_references');
+Route::get('/faq',[\App\Http\Controllers\HomeController::class,'faq'])->name('home_faq');
+Route::get('/contact',[\App\Http\Controllers\HomeController::class,'contact'])->name('home_contact');
+
+
 Route::get('/admin/login',[\App\Http\Controllers\HomeController::class,'login'])->name('admin_login');
 Route::post('/admin/logincheck',[\App\Http\Controllers\HomeController::class,'logincheck'])->name('admin_logincheck');
-Route::get('/admin/logout',[\App\Http\Controllers\HomeController::class,'logout'])->name('admin_logout');
+Route::get('/logout',[\App\Http\Controllers\HomeController::class,'logout'])->name('all_logout');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

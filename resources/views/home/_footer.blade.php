@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col-lg-4">
                 <h2 class="footer-heading mb-4">About</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
+                <p>{{$setting->aboutus}}</p>
                 <div class="my-5 social">
-                    <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                    <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                    <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                    <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                    <a href="{{$setting->facebook}}" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                    <a href="{{$setting->twitter}}" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                    <a href="{{$setting->instagram}}" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                    <a href="{{$setting->youtube}}" class="pl-3 pr-3"><span class="icon-youtube"></span></a>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -49,7 +49,7 @@
                 <div class="border-top pt-5">
                     <p class="copyright"><small>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>{{$setting->company}} <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="{{$setting->email}}" target="_blank" >{{$setting->title}}</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
 
                 </div>

@@ -11,6 +11,9 @@
     @section('javascript')
         @show
 
+    {{--Tab Icon--}}
+    <link rel="shortcut icon" href="{{asset('adminassets/icons/user.png')}}" type="image/x-icon" >
+
     <!-- Custom fonts for this template-->
     <link href="{{asset('adminassets')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
