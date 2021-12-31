@@ -8,10 +8,11 @@
     <meta name="author" content="Kuşbabalı Mahoni">
 
     <title>@yield('title')</title>
-    @section('javascript')
-        @show
+
 
     {{--Tab Icon--}}
+
+
     <link rel="shortcut icon" href="{{asset('adminassets/icons/user.png')}}" type="image/x-icon" >
 
     <!-- Custom fonts for this template-->
@@ -27,14 +28,16 @@
 <div id="wrapper">
     @include('admin._sidebar')
     <div id="content-wrapper" class="d-flex flex-column">
+        @include('admin._header')
+
         <div id="content">
-            @include('admin._header')
             @section('content')
                 @show
         </div>
-        @include('admin._footer')
+        @section('footer')
+            @include('admin._footer')
+            @show
     </div>
 </div>
 
 </body>
-

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Message;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,19 @@ class HomeController extends Controller
     public function contact(){
         return view('home.contact');
     }
+
+    public function sendmessage(Request $request){
+        $data=new Message;
+        $data->ip=$_SERVER["REMOTE_ADDR"];
+        $data->name=$request->input('fname')." ".$request->input('lname');
+        $data->phone=$request->input('phone');
+        $data->email=$request->input('email');
+        $data->subject=$request->input('subject');
+        $data->message=$request->input('message');
+        $data->save();
+        return redirect()->route('home_contact')->with('success','Mesajınız iletilmiştir, Teşekkür ederiz.');
+    }
+
     public function logincheck(Request $request)
     {
         if($request->isMethod('post'))
@@ -48,7 +62,7 @@ class HomeController extends Controller
             $kullanici=$request->only('email','password');
             if(Auth::attempt($kullanici)){
                 $request->session()->regenerate();
-                return redirect()->intended('admin');
+                return redirect('/admin')->intended('admin');
             }
             return back()->withErrors(['email'=>'The provided credentials do not match our records']);
         }
@@ -60,7 +74,7 @@ class HomeController extends Controller
         Auth::logout();
         $veri->session()->invalidate();
         $veri->session()->regenerateToken();
-        return redirect('/admin/login');
+        return redirect('/login');
     }
 }
 

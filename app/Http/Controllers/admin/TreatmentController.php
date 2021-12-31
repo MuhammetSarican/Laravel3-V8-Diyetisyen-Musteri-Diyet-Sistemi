@@ -105,7 +105,6 @@ class TreatmentController extends Controller
         {
             $data->image=Storage::putFile('images',$request->file('image'));
         }
-        $data->image=Storage::putFile('image',$request->file('image'));
         $data->price=$request->input('price');
         $data->user_id=Auth::id();
         $data->save();

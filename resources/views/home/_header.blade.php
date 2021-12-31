@@ -50,7 +50,7 @@
                                 <a href="#" class="nav-link">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                                 <ul class="dropdown">
                                     <li class="has-children">
-                                        <a href="#" class="nav-link">Profile</a>
+                                        <a href="{{route('user_profile')}}" class="nav-link">Profile</a>
                                         <a href="{{route('all_logout')}}" class="nav-link">Logout</a>
                                     </li>
                                 </ul>
@@ -61,7 +61,7 @@
                                     <li class="has-children">
                                         <a href="/login" class="nav-link">Login</a>
                                         <a href="/register" class="nav-link">Register</a>
-                                        <a href="#" class="nav-link">Lost Password</a>
+                                        <a href="/forgot-password" class="nav-link">Lost Password</a>
                                     </li>
                                 </ul>
                             @endguest
