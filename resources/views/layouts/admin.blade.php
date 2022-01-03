@@ -24,7 +24,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('adminassets')}}/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-<body id="page-top">
+<body id="page-top" class="sidebar-toggled">
 <div id="wrapper">
     @include('admin._sidebar')
     <div id="content-wrapper" class="d-flex flex-column">

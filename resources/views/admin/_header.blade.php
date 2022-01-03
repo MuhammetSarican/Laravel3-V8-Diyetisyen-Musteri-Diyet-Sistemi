@@ -135,14 +135,22 @@ $message=\App\Http\Controllers\Admin\HomeController::getmessage();
                                      alt="...">
                                 <div class="status-indicator bg-success"></div>
                             </div>
+
                             <div class="font-weight-bold">
                                 <div class="text-truncate text-black-opacity-05">{{$msg->message}}</div>
                                 <div class="small text-gray-700">{{$msg->name}}</div>
                             </div>
                         </a>
                     @endif
+
                 @endforeach
-                <a class="dropdown-item text-center small text-gray-500" href="{{route('admin_messages')}}">Read More Messages</a>
+                @if($i==0)
+                    <div class="font-weight-bold">
+                        <div class="text-truncate text-black-opacity-05">No More Message.</div>
+                        <div class="small text-gray-700"></div>
+                        @endif
+                        <a class="dropdown-item text-center small text-gray-500" href="{{route('admin_messages')}}">Read More Messages</a>
+                    </div>
             </div>
         </li>
 

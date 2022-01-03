@@ -13,12 +13,12 @@
 
 
 
-    <div class="slide-item overlay" style="background-image: url('{{asset('assets')}}/images/slider-1.jpg')">
+    <div class="slide-item overlay" style="background-image: url('{{asset('assets')}}/images/img_5.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 align-self-center">
-                    <h1 class="heading mb-3">Expert Care for the Elderly</h1>
-                    <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum totam alias iusto?</p>
+                    <h1 class="heading mb-3">Diyetisyen<br>Müşteri Diyet<br>Sistemi</h1>
+                    <p class="lead text-white mb-5">Üniversitelerin 4 yıllık beslenme ve diyetetik bölümünden mezun olan kişilere diyetisyen denir. Diyetisyenler sadece kilo alıp vermek ile ilgilenmez aynı zamanda besinlerin insan vücudundaki etkilerini de inceler. Besin analizlerini yaparak diyet ürünleri geliştirebilir ya da kişilerin hastalıklarına uygun olarak diyet programı hazırlayabilir.</p>
                     <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
                 </div>
             </div>
@@ -135,41 +135,41 @@
             </div>
         </div>
     </div>
+    @include('home._slider')
+    {{--    <div class="site-section">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row justify-content-between">--}}
+    {{--                <div class="col-lg-7">--}}
+    {{--                    <div class="section-heading">--}}
+    {{--                        <h2 class="heading mb-3">Senior Care Center is for Your Family</h2>--}}
+    {{--                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perspiciatis deleniti, maiores quia aliquam, odit iure aspernatur voluptate delectus ipsa.</p>--}}
 
-    <div class="site-section">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-7">
-                    <div class="section-heading">
-                        <h2 class="heading mb-3">Senior Care Center is for Your Family</h2>
-                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perspiciatis deleniti, maiores quia aliquam, odit iure aspernatur voluptate delectus ipsa.</p>
+    {{--                        <div class="row">--}}
+    {{--                            <div class="col-lg-6">--}}
+    {{--                                <img src="{{asset('assets')}}/images/img_3.jpg" alt="Image" class="img-fluid">--}}
+    {{--                            </div>--}}
+    {{--                            <div class="col-lg-6">--}}
+    {{--                                <ul class="list-unstyled ul-check primary">--}}
+    {{--                                    <li>Consectetur adipisicing elit</li>--}}
+    {{--                                    <li>Voluptate delectus ipsa</li>--}}
+    {{--                                    <li>Maiores quia aliquam</li>--}}
+    {{--                                </ul>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-lg-5">--}}
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <img src="{{asset('assets')}}/images/img_3.jpg" alt="Image" class="img-fluid">
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled ul-check primary">
-                                    <li>Consectetur adipisicing elit</li>
-                                    <li>Voluptate delectus ipsa</li>
-                                    <li>Maiores quia aliquam</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-
-                    <div class="d-block custom-media algin-items-stretch">
-                        <div class="text text-center">
-                            <h3>You can live here with love</h3>
-                        </div>
-                        <div class="img-bg" style="background-image: url('{{asset('assets')}}/images/img_2.jpg')"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--                    <div class="d-block custom-media algin-items-stretch">--}}
+    {{--                        <div class="text text-center">--}}
+    {{--                            <h3>You can live here with love</h3>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="img-bg" style="background-image: url('{{asset('assets')}}/images/img_2.jpg')"></div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 
     <div class="cover overlay" style="background-image: url('{{asset('assets')}}/images/slider-2.jpg')">
         <div class="container">

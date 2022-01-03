@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\Setting;
+use App\Models\Treatment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,12 @@ class HomeController extends Controller
     public function index()
     {
         $setting=Setting::first();
-        return view('home.index',['setting'=>$setting]);
+        $slider=Treatment::Select('title','image','price')->get();
+        $data=[
+            'setting'=>$setting,
+            'slider'=>$slider,
+        ];
+        return view('home.index',$data);
     }
     public function login(){
         return view('admin.login');
@@ -36,7 +42,13 @@ class HomeController extends Controller
     }
 
     public function faq(){
-        return view('home.faq');
+        $slider=Treatment::Select('title','image','price')->get();
+        $data=[
+            'slider'=>$slider,
+
+        ];
+        return view('home.faq',$data);
+
     }
 
     public function contact(){
@@ -61,8 +73,9 @@ class HomeController extends Controller
         {
             $kullanici=$request->only('email','password');
             if(Auth::attempt($kullanici)){
+                print_r($kullanici);
                 $request->session()->regenerate();
-                return redirect('/admin')->intended('admin');
+                return redirect('/admin')/*->intended('admin')*/;
             }
             return back()->withErrors(['email'=>'The provided credentials do not match our records']);
         }

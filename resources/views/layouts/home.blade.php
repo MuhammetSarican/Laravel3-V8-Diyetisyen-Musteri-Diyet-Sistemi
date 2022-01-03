@@ -10,6 +10,7 @@
     <meta name="author" content="Kuşbabalı Mahoni">
     {{--Tab Icon--}}
     <link rel="shortcut icon" href="{{asset('assets/icons/diet.png')}}" type="image/x-icon" >
+
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets')}}/fonts/icomoon/style.css">
 

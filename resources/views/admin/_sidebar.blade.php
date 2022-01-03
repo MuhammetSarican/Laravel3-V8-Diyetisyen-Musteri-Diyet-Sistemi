@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin_home')}}">
-        <div class="sidebar-brand-text mx-3" style="font-family: 'Comic Sans MS'">Diyetisyen<br>Müşteri Diyet Sistemi</div>
+        <div class="sidebar-brand-text mx-3" style="font-family: 'Comic Sans MS'">Admin Panel</div>
     </a>
 
     <!-- Divider -->
@@ -79,12 +79,10 @@
             Treatments
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin_category')}}">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Blank_Page</span>
-        </a>
-    </li>
+    <hr class="sidebar-divider">
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 </ul>
 {{--data-toggle="collapse" data-target="#collapsePages"--}}
 {{--aria-expanded="true" aria-controls="collapsePages"Aşağı Açılan Menü--}}
