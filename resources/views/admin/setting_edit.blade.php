@@ -58,6 +58,33 @@
                                     </div>
                                     <div class="card shadow mb-4">
                                         <!-- Card Header - Accordion -->
+                                        <a href="#socialmedia" class="d-block card-header py-3 collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="generalinformation">
+                                            <h6 class="m-0 font-weight-bold text-primary">Social Media</h6>
+                                        </a>
+                                        <!-- Card Content - Collapse -->
+                                        <div class="collapse" id="socialmedia" style="">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>Youtube</label>
+                                                    <input type="text" name="youtube" value="{{$data->youtube}}" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Instagram</label>
+                                                    <input type="text" name="instagram" value="{{$data->instagram}}" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Facebook</label>
+                                                    <input type="text" name="facebook" value="{{$data->facebook}}" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Twitter</label>
+                                                    <input type="text" name="twitter" value="{{$data->twitter}}" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow mb-4">
+                                        <!-- Card Header - Accordion -->
                                         <a href="#contacted" class="d-block card-header py-3 collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="contact">
                                             <h6 class="m-0 font-weight-bold text-primary">Contact</h6>
                                         </a>

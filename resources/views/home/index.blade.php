@@ -18,7 +18,10 @@
             <div class="row">
                 <div class="col-lg-6 align-self-center">
                     <h1 class="heading mb-3">Diyetisyen<br>Müşteri Diyet<br>Sistemi</h1>
-                    <p class="lead text-white mb-5">Üniversitelerin 4 yıllık beslenme ve diyetetik bölümünden mezun olan kişilere diyetisyen denir. Diyetisyenler sadece kilo alıp vermek ile ilgilenmez aynı zamanda besinlerin insan vücudundaki etkilerini de inceler. Besin analizlerini yaparak diyet ürünleri geliştirebilir ya da kişilerin hastalıklarına uygun olarak diyet programı hazırlayabilir.</p>
+                    <p class="lead text-white mb-5">Üniversitelerin 4 yıllık beslenme ve diyetetik bölümünden mezun olan
+                        kişilere diyetisyen denir. Diyetisyenler sadece kilo alıp vermek ile ilgilenmez aynı zamanda
+                        besinlerin insan vücudundaki etkilerini de inceler. Besin analizlerini yaparak diyet ürünleri
+                        geliştirebilir ya da kişilerin hastalıklarına uygun olarak diyet programı hazırlayabilir.</p>
                     <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
                 </div>
             </div>
@@ -61,46 +64,29 @@
         </div>
     </div>
 
-
     <div class="site-section">
         <div class="container">
+            <div class="row mb-5 justify-content-center">
+                <div class="col-7 text-center">
+                    <div class="heading">
+                        <h2 class="text-black">Last Added Special Lists</h2>
+                    </div>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                    <div class="service">
-                        <a href="#" class="d-block"><img src="{{asset('assets')}}/images/img_4_sq.jpg" alt="Image" class="img-fluid"></a>
-                        <div class="service-inner">
-                            <h3>Special Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit.</p>
-                        </div>
+                @foreach($last as $lst)
+                    <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+                        <div class="service">
+                            <a href="{{route('treatment',['id'=>$lst->id])}}" class="d-block" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">
+                                <img src="{{\Illuminate\Support\Facades\Storage::url($lst->image)}}" alt="Image" class="img-fluid" style="height: 250px;object-fit: cover">
+                            </a>
+                            <div class="service-inner" style="height: 150px">
+                                <h3>{{$lst->title}}</h3>
+                                <p>Date:{{$lst->created_at}}</p>
+                            </div>
                     </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                    <div class="service">
-                        <a href="#" class="d-block"><img src="{{asset('assets')}}/images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
-                        <div class="service-inner">
-                            <h3>Special Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit.</p>
-                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                    <div class="service">
-                        <a href="#" class="d-block"><img src="{{asset('assets')}}/images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
-                        <div class="service-inner">
-                            <h3>Special Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                    <div class="service">
-                        <a href="#" class="d-block"><img src="{{asset('assets')}}/images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
-                        <div class="service-inner">
-                            <h3>Special Care</h3>
-                            <p>Lorem ipsum dolor sit amet elit.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -215,7 +201,8 @@
                     <div class="testimonial text-center">
                         <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
+                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus
+                                nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
                             <cite class="author">Elizabeth Anderson, Senior</cite>
                         </blockquote>
                     </div>
@@ -224,7 +211,8 @@
                     <div class="testimonial text-center">
                         <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
+                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus
+                                nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
                             <cite class="author">Elizabeth Anderson, Senior</cite>
                         </blockquote>
                     </div>
@@ -233,7 +221,8 @@
                     <div class="testimonial text-center">
                         <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
+                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus
+                                nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
                             <cite class="author">Elizabeth Anderson, Senior</cite>
                         </blockquote>
                     </div>
@@ -287,9 +276,12 @@
                     <div class="section-heading">
                         <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
 
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-                        <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-                        <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
+                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet
+                            nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
+                        <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum
+                            ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
+                        <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong>
+                        </p>
                         <p><a href="#" class="btn btn-white">Learn More</a></p>
                     </div>
                 </div>

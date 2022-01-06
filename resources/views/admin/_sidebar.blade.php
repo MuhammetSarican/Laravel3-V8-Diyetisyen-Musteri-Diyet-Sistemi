@@ -2,7 +2,10 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin_home')}}">
-        <div class="sidebar-brand-text mx-3" style="font-family: 'Comic Sans MS'">Admin Panel</div>
+        <div class="sidebar-brand-icon">
+            <img src="{{asset('adminassets')}}/icons/gear.png" style="height: 55px">
+        </div>
+        <div class="sidebar-brand-text font-italic font-weight-light mx-3">Admin Panel</div>
     </a>
 
     <!-- Divider -->

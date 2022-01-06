@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Faq;
+use App\Models\Image;
 use App\Models\Message;
+use App\Models\Review;
 use App\Models\Setting;
 use App\Models\Treatment;
 use Illuminate\Http\Request;
@@ -19,20 +22,68 @@ class HomeController extends Controller
     {
         return Setting::first();
     }
+    public function countreview($id)
+    {
+        return Review::where('treatment_id',$id)->count();
+    }
+    public function avrgreview($id)
+    {
+        return Review::where('treatment_id',$id)->average('rate');
+    }
     public function index()
     {
         $setting=Setting::first();
         $slider=Treatment::Select('title','image','price')->get();
+        $last=Treatment::Select('id','title','image','price','created_at')->limit(4)->orderByDesc('created_at')->inRandomOrder()->get();
+
         $data=[
             'setting'=>$setting,
             'slider'=>$slider,
+            'last'=>$last,
         ];
         return view('home.index',$data);
     }
     public function login(){
         return view('admin.login');
     }
+    public function treatment($id)
+    {
+        $data=Treatment::find($id);
+        $images=Image::where('treatment_id',$id)->get();
+        $review=Review::where('treatment_id',$id)->get();
+        $data=[
+            'review'=>$review,
+            'data'=>$data,
+            'image'=>$images,
+        ];
+        return view('home.treatment_detail',$data);
+    }
+    public function gettreatment(Request $request)
+    {
+        $search=$request->input('search');
+        $count=Treatment::where('title','like','%'.$search.'%')->get()->count();
+        if ($count==1)
+        {
+            $data=Treatment::where('title',$request->input('search'))->first();
+            return redirect()->route('treatment',['id'=>$data->id]);
+        }
+        else
+        {
+            return redirect()->route('treatmentlist',['search'=>$search]);
+        }
+    }
+    public function treatmentlist($search)
+    {
+        $datalist=Treatment::where('title','like','%'.$search.'%')->get();
+        return view('home.search_treatments',['search'=>$search,'datalist'=>$datalist]);
+    }
 
+    public function categorytreatments($id)
+    {
+        $datalist=Treatment::where('category_id',$id)->get();
+        $data=Category::find($id);
+        return view('home.category_treatments',['data'=>$data,'datalist'=>$datalist]);
+    }
     public function aboutus(){
         return view('home.about');
     }
@@ -42,12 +93,11 @@ class HomeController extends Controller
     }
 
     public function faq(){
-        $slider=Treatment::Select('title','image','price')->get();
-        $data=[
-            'slider'=>$slider,
-
+        $data=Faq::all()->sortBy('position');
+        $FAQ=[
+            'data'=>$data,
         ];
-        return view('home.faq',$data);
+        return view('home.faq',$FAQ);
 
     }
 

@@ -1,3 +1,6 @@
+<?php
+$setting= \App\Http\Controllers\HomeController::getsetting();
+?>
 <div class="site-footer bg-light">
     <div class="container">
         <div class="row">
