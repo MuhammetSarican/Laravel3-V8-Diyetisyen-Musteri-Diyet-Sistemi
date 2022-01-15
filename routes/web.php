@@ -30,7 +30,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/deneme', function () {
-    return view('livewire.review');
+    return view('home.user_appointment');
 });
 
 Route::get('/admin', function () {
@@ -66,6 +66,50 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
 
 });
 
+
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function() {
+    //Route::get('/profile', [\App\Http\Controllers\admin\HomeController::class, 'index'])->name('admin_home');
+
+    //Treatment
+    Route::prefix('treatment')->group(function () {
+        Route::get('/', [\App\Http\Controllers\TreatmentController::class, 'index'])->name('user_treatments');
+        Route::get('create', [\App\Http\Controllers\TreatmentController::class, 'create'])->name('user_treatment_add');
+        Route::post('store', [\App\Http\Controllers\TreatmentController::class, 'store'])->name('user_treatment_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\TreatmentController::class, 'edit'])->name('user_treatment_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\TreatmentController::class, 'update'])->name('user_treatment_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\TreatmentController::class, 'destroy'])->name('user_treatment_delete');
+        Route::get('show', [\App\Http\Controllers\TreatmentController::class, 'show'])->name('user_treatment_show');
+    });
+    //Image
+    Route::prefix('image')->group(function (){
+        //  Route::get('/',[\App\Http\Controllers\ImageController::class,'index'])->name('user_treatments');
+        Route::get('create/{treatment_id}',[\App\Http\Controllers\ImageController::class,'create'])->name('user_image_add');
+        Route::post('store/{treatment_id}',[\App\Http\Controllers\ImageController::class,'store'])->name('user_image_store');
+        Route::get('delete/{id},{treatment_id}',[\App\Http\Controllers\ImageController::class,'destroy'])->name('user_image_delete');
+        Route::get('show',[\App\Http\Controllers\ImageController::class,'show'])->name('user_image_show');
+    });
+    //Order
+    Route::prefix('order')->group(function () {
+        Route::get('/', [\App\Http\Controllers\OrderController::class, 'index'])->name('user_orders');
+        Route::get('create', [\App\Http\Controllers\OrderController::class, 'create'])->name('user_order_add');
+        Route::post('store', [\App\Http\Controllers\OrderController::class, 'store'])->name('user_order_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\OrderController::class, 'edit'])->name('user_order_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\OrderController::class, 'update'])->name('user_order_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\OrderController::class, 'destroy'])->name('user_order_delete');
+        Route::get('show', [\App\Http\Controllers\OrderController::class, 'show'])->name('user_order_show');
+    });
+    //Appointment
+    Route::prefix('appointment')->group(function () {
+        Route::get('/', [\App\Http\Controllers\AppointmentController::class, 'index'])->name('user_appointments');
+        Route::get('create', [\App\Http\Controllers\AppointmentController::class, 'create'])->name('user_appointment_add');
+        Route::post('store', [\App\Http\Controllers\AppointmentController::class, 'store'])->name('user_appointment_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\AppointmentController::class, 'edit'])->name('user_appointment_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\AppointmentController::class, 'update'])->name('user_appointment_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\AppointmentController::class, 'destroy'])->name('user_appointment_delete');
+        Route::get('show', [\App\Http\Controllers\AppointmentController::class, 'show'])->name('user_appointment_show');
+    });
+
+});
 
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/',[\App\Http\Controllers\admin\HomeController::class,'index'])->name('admin_home');

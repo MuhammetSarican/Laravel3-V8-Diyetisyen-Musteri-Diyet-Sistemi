@@ -1,6 +1,5 @@
 @extends('layouts.home')
 
-@section('title',$data->title)
 
 @section('description')
 @endsection
@@ -8,14 +7,12 @@
 @section('keywords','boş')
 
 @section('content')
-    <div class="slide-item overlay" style="background-image: url('{{asset('assets')}}/images/slider-2.jpg')">
+    <div class="overlay" style="background-image: url('{{asset('assets')}}/images/add_1.jpg');height: 300px">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <h1 class="heading mb-3">Our Services</h1>
-                    <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-                        totam alias iusto?</p>
-                    <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+                    <p style="margin-top: 150px">
+                    <h1 class="heading mb-3">Add Treatment</h1></p>
                 </div>
             </div>
         </div>
@@ -74,7 +71,7 @@
     <div class="site-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 ml-auto">
+                <div class="col-lg-7 mb-5 border border-2 border-gray-100">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Accordion -->
                         <a href="#review" class="d-block card-header py-3 collapsed" data-toggle="collapse"
@@ -106,22 +103,14 @@
                         </div>
                     </div>
                     <p class="text-black mb-5"><strong class="h6">“We care your reviews”</strong></p>
-
                 </div>
-                <div class="col-lg-4 mb-5 border border-2 border-gray-100">
-                    @livewire('review',['id'=>$data->id])
+                <div class="col-lg-5 ml-auto">
+                    <div class="card shadow mb-4">
+                                            @livewire('review',['id'=>$data->id])
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-    <div class="site-section">
-        <div class="container">
-            <div class="row">
-{{--                @include('home.user_reviews')--}}
-            </div>
-        </div>
-    </div>
-
 @endsection
+

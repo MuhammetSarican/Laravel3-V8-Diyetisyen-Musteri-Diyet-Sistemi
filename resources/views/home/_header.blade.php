@@ -54,6 +54,9 @@ $setting= \App\Http\Controllers\HomeController::getsetting();
                                     <li class="has-children">
                                         <a href="{{route('user_profile')}}" class="nav-link">Profile</a>
                                         <a href="{{route('all_logout')}}" class="nav-link">Logout</a>
+                                        <a href="{{route('user_treatments')}}" class="nav-link">My Treatments</a>
+                                        <a href="{{route('myreviews')}}" class="nav-link">My Reviews</a>
+                                        <a href="{{route('user_appointments')}}" class="nav-link">Make an Appointment</a>
                                     </li>
                                 </ul>
                             @endauth

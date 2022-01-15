@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
             <div class="col-lg-12 align-self-center text-center">
-                <h1 class="heading mb-3">FAQ's</h1>
+                <h1 class="heading mb-3">Frequently Asked Question's</h1>
 {{--                <p class="lead text-white mb-5">{{$setting->aboutus}}</p>--}}
 {{--                <p><a href="#" class="btn btn-primary">Get In Touch</a></p>--}}
             </div>
