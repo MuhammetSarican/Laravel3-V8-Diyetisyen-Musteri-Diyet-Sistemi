@@ -2,7 +2,6 @@
 @section('title','FAQ List')
 @section('content')
     <!-- Content Wrapper -->
-
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -50,9 +49,9 @@
                                             {{$dl->position}}
                                         </td>
                                         <td>{{$dl->question}}</td>
-                                        <td>{{$dl->answer}}</td>
+                                        <td>{!! $dl->answer !!}</td>
                                         <td>{{$dl->status}}</td>
-                                        <td><a href="{{route('admin_faq_edit',['id'=>$dl->id])}}"><img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
+                                        <td><a href="{{route('admin_faq_edit',['id'=>$dl->id])}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')"><img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
                                         <td><a href="{{route('admin_faq_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')"><img src="{{asset('adminassets/icons/trash.png')}}" height="25px"></a></td>
                                     </tr>
                                 @endforeach

@@ -2,7 +2,6 @@
 @section('title','Treatment List')
 @section('content')
     <!-- Content Wrapper -->
-
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">

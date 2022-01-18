@@ -68,11 +68,6 @@
                                                 $('#summernote').summernote();
                                             });
                                         </script>
-
-                                        {{--                                        <textarea name="detail">{{$data->detail}}</textarea>--}}
-{{--                                        <script>--}}
-{{--                                            CKEDITOR.replace( 'detail' );--}}
-{{--                                        </script>--}}
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>

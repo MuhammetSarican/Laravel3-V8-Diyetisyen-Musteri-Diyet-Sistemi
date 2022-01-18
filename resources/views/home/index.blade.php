@@ -96,137 +96,48 @@
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="counter-wrap text-center">
-                        <strong class="counter d-block"><span class="number" data-number="5890"></span></strong>
-                        <span>Rooms Available</span>
+                        <strong class="counter d-block"><span class="number" data-number="8"></span></strong>
+                        <span>Treatment Number</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="counter-wrap text-center">
-                        <strong class="counter d-block"><span class="number" data-number="530"></span></strong>
-                        <span>Nurse Staff</span>
+                        <strong class="counter d-block"><span class="number" data-number="1"></span></strong>
+                        <span>Dietitian</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="counter-wrap text-center">
-                        <strong class="counter d-block"><span class="number" data-number="4029"></span></strong>
-                        <span>Senior Living</span>
+                        <strong class="counter d-block"><span class="number" data-number="2"></span></strong>
+                        <span>Reviews</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="counter-wrap text-center">
-                        <strong class="counter d-block"><span class="number" data-number="7020"></span></strong>
-                        <span>Happy People</span>
+                        <strong class="counter d-block"><span class="number" data-number="3"></span></strong>
+                        <span>Users</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @include('home._slider')
-    {{--    <div class="site-section">--}}
-    {{--        <div class="container">--}}
-    {{--            <div class="row justify-content-between">--}}
-    {{--                <div class="col-lg-7">--}}
-    {{--                    <div class="section-heading">--}}
-    {{--                        <h2 class="heading mb-3">Senior Care Center is for Your Family</h2>--}}
-    {{--                        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perspiciatis deleniti, maiores quia aliquam, odit iure aspernatur voluptate delectus ipsa.</p>--}}
-
-    {{--                        <div class="row">--}}
-    {{--                            <div class="col-lg-6">--}}
-    {{--                                <img src="{{asset('assets')}}/images/img_3.jpg" alt="Image" class="img-fluid">--}}
-    {{--                            </div>--}}
-    {{--                            <div class="col-lg-6">--}}
-    {{--                                <ul class="list-unstyled ul-check primary">--}}
-    {{--                                    <li>Consectetur adipisicing elit</li>--}}
-    {{--                                    <li>Voluptate delectus ipsa</li>--}}
-    {{--                                    <li>Maiores quia aliquam</li>--}}
-    {{--                                </ul>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="col-lg-5">--}}
-
-    {{--                    <div class="d-block custom-media algin-items-stretch">--}}
-    {{--                        <div class="text text-center">--}}
-    {{--                            <h3>You can live here with love</h3>--}}
-    {{--                        </div>--}}
-    {{--                        <div class="img-bg" style="background-image: url('{{asset('assets')}}/images/img_2.jpg')"></div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
-    <div class="cover overlay" style="background-image: url('{{asset('assets')}}/images/slider-2.jpg')">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-7 mx-auto text-center align-self-center">
-                    <h1 class="mb-5 heading">Our Goal is to Make Your Life Better</h1>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="feature">
-                <span class="img-wrap">
-                  <img src="{{asset('assets')}}/images/svg/svg/006-elderly-3.svg" alt="Image" class="img-fluid">
-                </span>
-                                <h3>Expert Nursing Staff</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="feature">
-                <span class="img-wrap">
-                  <img src="{{asset('assets')}}/images/svg/svg/005-elderly-2.svg" alt="Image" class="img-fluid">
-                </span>
-                                <h3>Expert Nursing Staff</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="feature">
-                <span class="img-wrap">
-                  <img src="{{asset('assets')}}/images/svg/svg/004-nurse.svg" alt="Image" class="img-fluid">
-                </span>
-                                <h3>Expert Nursing Staff</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="site-section bg-light">
         <div class="container">
             <div class="row">
+                @foreach($review as $rew)
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="testimonial text-center">
                         <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus
-                                nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
-                            <cite class="author">Elizabeth Anderson, Senior</cite>
+                            <p class="text-center quote">{{$rew->subject}}</p>
+                            <p class="quote">{{$rew->review}}</p>
+                            <cite class="author">{{$rew->user->name}}, {{$rew->created_at}}</cite>
                         </blockquote>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="testimonial text-center">
-                        <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
-                        <blockquote>
-                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus
-                                nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
-                            <cite class="author">Elizabeth Anderson, Senior</cite>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="testimonial text-center">
-                        <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
-                        <blockquote>
-                            <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus
-                                nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
-                            <cite class="author">Elizabeth Anderson, Senior</cite>
-                        </blockquote>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -265,31 +176,6 @@
             </div>
         </div>
     </div>
-
-    <div class="site-section bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-                    <img src="{{asset('assets')}}/images/about.png" alt="Image" class="img-fluid">
-                </div>
-                <div class="col-md-6 col-lg-5 ml-auto">
-                    <div class="section-heading">
-                        <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
-
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet
-                            nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-                        <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum
-                            ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-                        <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong>
-                        </p>
-                        <p><a href="#" class="btn btn-white">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
     <div class="site-section">
         <div class="container">

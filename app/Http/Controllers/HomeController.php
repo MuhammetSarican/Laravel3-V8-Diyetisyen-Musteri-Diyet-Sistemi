@@ -35,11 +35,13 @@ class HomeController extends Controller
         $setting=Setting::first();
         $slider=Treatment::Select('title','image','price')->get();
         $last=Treatment::Select('id','title','image','price','created_at')->limit(4)->orderByDesc('created_at')->inRandomOrder()->get();
+        $review=Review::Select('id','user_id','subject','review','created_at')->limit(3)->orderByDesc('created_at')->inRandomOrder()->get();
 
         $data=[
             'setting'=>$setting,
             'slider'=>$slider,
             'last'=>$last,
+            'review'=>$review,
         ];
         return view('home.index',$data);
     }
@@ -77,7 +79,12 @@ class HomeController extends Controller
         $datalist=Treatment::where('title','like','%'.$search.'%')->get();
         return view('home.search_treatments',['search'=>$search,'datalist'=>$datalist]);
     }
-
+    public function categoryalltreatments()
+    {
+        $datalist=Treatment::all();
+        $data=Category::all();
+        return view('home.category_all_treatments',['data'=>$data,'datalist'=>$datalist]);
+    }
     public function categorytreatments($id)
     {
         $datalist=Treatment::where('category_id',$id)->get();
@@ -137,7 +144,7 @@ class HomeController extends Controller
         Auth::logout();
         $veri->session()->invalidate();
         $veri->session()->regenerateToken();
-        return redirect('/login');
+        return back();
     }
 }
 

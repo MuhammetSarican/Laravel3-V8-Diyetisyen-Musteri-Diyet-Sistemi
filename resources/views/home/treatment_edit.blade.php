@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title','Treatment Edit')
 
 
 @section('description')

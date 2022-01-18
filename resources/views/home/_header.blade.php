@@ -1,14 +1,18 @@
 <?php
 $parentCategories = \App\Http\Controllers\HomeController::categorylist();
-$setting= \App\Http\Controllers\HomeController::getsetting();
+$setting = \App\Http\Controllers\HomeController::getsetting();
 ?>
-<header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+
+<header class="site-navbar light js-sticky-header site-navbar-target" role="banner"
+        style="width: 100% ; position: fixed; top: 0px; z-index: inherit;">
 
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-6 col-xl-2">
-                <div class="mb-0 site-logo"><a href="{{route('home_index')}}" class="mb-0">Diyetisyen: {{--{{\Illuminate\Support\Facades\Auth::user()->name}}--}} <span class="text-primary">.</span> </a></div>
+                <div class="mb-0 site-logo"><a href="{{route('home_index')}}"
+                                               class="mb-0">Diyetisyen: {{--{{\Illuminate\Support\Facades\Auth::user()->name}}--}}
+                        <span class="text-primary">.</span> </a></div>
             </div>
 
             <div class="col-12 col-md-10 d-none d-xl-block">
@@ -30,6 +34,9 @@ $setting= \App\Http\Controllers\HomeController::getsetting();
                                         </ul>
                                     </li>
                                 @endforeach
+                                <li class="has-children1">
+                                    <a href="{{route('categoryalltreatments')}}">All</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -54,9 +61,17 @@ $setting= \App\Http\Controllers\HomeController::getsetting();
                                     <li class="has-children">
                                         <a href="{{route('user_profile')}}" class="nav-link">Profile</a>
                                         <a href="{{route('all_logout')}}" class="nav-link">Logout</a>
-                                        <a href="{{route('user_treatments')}}" class="nav-link">My Treatments</a>
+                                        <?php
+                                        $userRoles = Auth::user()->role;
+                                        ?>
+                                        @if($userRoles=='admin' || $userRoles=='dietitian')
+                                            <a href="{{route('user_treatments')}}" class="nav-link">My Treatments</a>
+                                        @endif
                                         <a href="{{route('myreviews')}}" class="nav-link">My Reviews</a>
-                                        <a href="{{route('user_appointments')}}" class="nav-link">Make an Appointment</a>
+                                        <a href="{{route('user_orders')}}" class="nav-link">My Orders</a>
+                                        <a href="{{route('user_appointments')}}" class="nav-link">My Appointments</a>
+                                        <a href="{{route('user_processes')}}" class="nav-link">My Processes</a>
+
                                     </li>
                                 </ul>
                             @endauth
@@ -72,21 +87,22 @@ $setting= \App\Http\Controllers\HomeController::getsetting();
                             @endguest
                         </li>
 
-{{--                        <form action="{{route('gettreatment')}}" method="post" class="nav-link">--}}
-{{--                            @csrf--}}
-{{--                            @livewire('search')--}}
-{{--                            <input type="submit">--}}
-{{--                        </form>--}}
-{{--                        @livewireScripts--}}
+{{--                                                <form action="{{route('gettreatment')}}" method="post" class="nav-link">--}}
+{{--                                                    @csrf--}}
+{{--                                                    @livewire('search')--}}
+{{--                                                    <input type="submit">--}}
+{{--                                                </form>--}}
+{{--                                                @livewireScripts--}}
 
-                        <li class="has-children">
-                            <a href="#" class="nav-link">
-                                <span class="icon-search"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="has-children">
+{{--                                                <li class="has-children">--}}
+{{--                                                    <a href="#" class="nav-link">--}}
+{{--                                                        <span class="icon-search"></span></a>--}}
+{{--                                                    <ul class="dropdown-menu">--}}
+{{--                                                        <li class="has-children">--}}
 
-                                </li>
-                            </ul></li>
+{{--                                                        </li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </li>--}}
 
                         <li class="social"><a href="{{$setting->youtube}}" class="nav-link"><span
                                     class="icon-youtube"></span></a></li>
@@ -97,30 +113,30 @@ $setting= \App\Http\Controllers\HomeController::getsetting();
                         <li class="social"><a href="{{$setting->twitter}}" class="nav-link"><span
                                     class="icon-twitter"></span></a></li>
                     </ul>
-{{--Search İcon--}}
-                    <div class="col-6 d-inline-block ml-md-0 py-3" style="position: relative; top: 3px;">
+                    {{--Search İcon--}}
 
-                    </div>
+                    {{--                    Hide menu--}}
+                    {{--                    <div class="site-mobile-menu">--}}
+                    {{--                        <div class="site-mobile-menu-header">--}}
+                    {{--                            Close Icon--}}
+                    {{--                            <div class="site-mobile-menu-close mt-3">--}}
+                    {{--                                <span class="icon-close2 js-menu-toggle"></span>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
 
-{{--                    Hide menu--}}
-{{--                    <div class="site-mobile-menu">--}}
-{{--                        <div class="site-mobile-menu-header">--}}
-{{--                            Close Icon--}}
-{{--                            <div class="site-mobile-menu-close mt-3">--}}
-{{--                                <span class="icon-close2 js-menu-toggle"></span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-{{--                    <div class="">--}}
-{{--                    </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="">--}}
+                    {{--                    </div>--}}
                 </nav>
             </div>
+
+
             <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
                 <a href="#" class="site-menu-toggle js-menu-toggle float-right">
                     <span class="icon-menu h3 text-white"></span>
                 </a>
             </div>
+
         </div>
     </div>
 

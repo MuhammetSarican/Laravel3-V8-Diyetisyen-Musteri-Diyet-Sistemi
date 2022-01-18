@@ -73,4 +73,16 @@ class User extends Authenticatable
         return $this->hasMany(Appointment::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+    public function treatment()
+    {
+        return $this->hasMany(Treatment::class);
+    }
+    public function process()
+    {
+        return $this->hasMany(Process::class);
+    }
 }

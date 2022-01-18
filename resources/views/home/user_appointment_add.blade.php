@@ -11,7 +11,8 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3">Add Treatment</h1></p>
+                    <p style="margin-top: 150px">
+                    <h1 class="heading mb-3">Add Treatment</h1></p>
                 </div>
             </div>
         </div>
@@ -35,8 +36,8 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Select a Treatment</label>
-                                    <select class="form-control select2" name="treatment_id" style="width: 100%">
+                                    <label>Parent</label>
+                                    <select class="form-control select2" name="order_id" style="width: 100%">
                                         @foreach($datalist as $rs)
                                             <option value="{{$rs->id}}">
                                                 {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
@@ -44,47 +45,33 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                {{--                                <div class="form-group">--}}
-                                {{--                                    <label>Parent</label>--}}
-                                {{--                                    <select class="form-control select2" name="category_id" style="width: 100%">--}}
-                                {{--                                        @foreach($datalist as $rs)--}}
-                                {{--                                            <option value="{{$rs->id}}">--}}
-                                {{--                                                Diyetisyen--}}
-                                {{--                                                {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}--}}
-                                {{--                                            </option>--}}
-                                {{--                                        @endforeach--}}
-                                {{--                                    </select>--}}
-                                {{--                                </div>--}}
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="date" name="" class="form-control">
+                                <div class="row form-group">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label>Date</label>
+                                        <input type="date" name="date" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Time</label>
+                                        <input type="time" name="time" class="form-control">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Time</label>
-                                    <input type="time" name="time" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Weight</label>
-                                    <input type="text" name="weight" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Height</label>
-                                    <input type="text" name="height" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Mass Index</label>
-                                    <input type="text" name="mass_index" class="form-control">
+                                <div class="row form-group">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label>Weight</label>
+                                        <input type="text" name="weight" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Height</label>
+                                        <input type="text" name="height" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Pulse</label>
                                     <input type="integer" name="pulse" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label>Note</label>
-                                    <input type="integer" name="note" class="form-control">
-                                </div>
                             </div>
                             <div class="card-footer">
+                                <a class="btn btn-danger text-white">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Create Appointment</button>
                             </div>
                         </form>
@@ -107,4 +94,3 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 @section('footer')
 @endsection
-<?php

@@ -7,11 +7,11 @@
 @section('keywords','boş')
 
 @section('content')
-    <div class="overlay" style="background-image: url('{{asset('assets')}}/images/add_1.jpg');height: 300px">
+    <div class="overlay" style="background-image: url('{{asset('assets')}}/images/slider_10.jpg');height: 300px">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3">Add Treatment</h1></p>
+                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">User Reviews</h1></p>
                 </div>
             </div>
         </div>
@@ -31,9 +31,6 @@
                 <div class="col-lg-10 ml-auto">
                     <div class="card shadow mb-4">
                         <div class="card-header">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -56,7 +53,7 @@
                                                     {{$rs->id}}
                                                 </td>
                                                 <td>
-                                                    {{$rs->treatment_id}}
+                                                    {{$rs->treatment->title}}
                                                 </td>
                                                 <td>
                                                     {{$rs->subject}}
