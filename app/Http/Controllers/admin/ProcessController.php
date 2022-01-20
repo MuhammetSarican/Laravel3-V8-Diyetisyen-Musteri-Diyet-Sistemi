@@ -15,7 +15,8 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        //
+        $datalist=Process::all();
+        return view('admin.process',['datalist'=>$datalist]);
     }
 
     /**
@@ -25,7 +26,8 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        //
+        $datalist=Category::all();
+        return view('admin.process_add',['datalist'=>$datalist]);
     }
 
     /**
@@ -36,7 +38,18 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new Process;
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->description=$request->input('description');
+        $data->status=$request->input('status');
+        $data->category_id=$request->input('category_id');
+        $data->detail=$request->input('detail');
+        $data->image=Storage::putFile('image',$request->file('image'));
+        $data->price=$request->input('price');
+        $data->user_id=Auth::id();
+        $data->save();
+        return redirect()->route('admin_process');
     }
 
     /**
@@ -56,9 +69,11 @@ class ProcessController extends Controller
      * @param  \App\Models\Process  $process
      * @return \Illuminate\Http\Response
      */
-    public function edit(Process $process)
+    public function edit(Process $process,$id)
     {
-        //
+        $data=Process::find($id);
+        $datalist =Process::all();
+        return view('admin.process_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
@@ -68,9 +83,13 @@ class ProcessController extends Controller
      * @param  \App\Models\Process  $process
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Process $process)
+    public function update(Request $request, Process $process,$id)
     {
-        //
+        $data=Process::find($id);
+        $data->note=$request->input('note');
+        $data->status=$request->input('status');
+        $data->save();
+        return redirect()->back()->with('success','Updated Successfully.');
     }
 
     /**
@@ -79,8 +98,9 @@ class ProcessController extends Controller
      * @param  \App\Models\Process  $process
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Process $process)
+    public function destroy(Process $process,$id)
     {
-        //
+        Process::destroy($id);
+        return redirect()->route('admin_process');
     }
 }

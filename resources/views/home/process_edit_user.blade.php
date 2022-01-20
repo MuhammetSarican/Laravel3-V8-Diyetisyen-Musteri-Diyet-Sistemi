@@ -1,5 +1,6 @@
 @extends('layouts.home')
-@section('title','Process Add')
+@section('title','Process Edit')
+
 
 @section('description')
 @endsection
@@ -11,7 +12,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">Process Add</h1></p>
+                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">Process Edit</h1></p>
                 </div>
             </div>
         </div>
@@ -22,53 +23,55 @@
             <div class="row">
                 <div class="col-lg-12 ml-auto">
                     <div class="card shadow mb-4">
-                        <form role="form" action="{{route('user_process_store')}}" method="post"
+                        <form role="form" action="{{route('user_process_user_update',['id'=>$data->id])}}" method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>User Name</label>
-                                    <select class="form-control select2" name="user_id" style="width: 100%">
-                                        @foreach($dietitian as $rs)
-                                            <option value="{{$rs->id}}">
-                                                {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->name)}}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label>Treatment Title</label>
-                                    <select class="form-control select2" name="treatment_id" style="width: 100%">
-                                        @foreach($treatment as $rs)
-                                            <option value="{{$rs->id}}">
-                                                {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <p class="form-control text-left">{{$data->treatment->title}}</p>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-md-6 mb-3 mb-md-0">
                                         <label>Start Date</label>
-                                        <input type="date" name="start_date" class="form-control">
+                                        <p class="form-control text-left">{{$data->start_date}}</p>
                                     </div>
                                     <div class="col-md-6 mb-3 mb-md-0">
                                         <label>End Date</label>
-                                        <input type="date" name="end_date" class="form-control">
+                                        <p class="form-control text-left">{{$data->end_date}}</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Detail</label>
-                                    <textarea id="summernote" class="form-control" name="detail"></textarea>
+                                    <textarea id="summernote" class="form-control"
+                                              name="detail">{{$data->detail}}</textarea>
                                     <script>
                                         $(document).ready(function () {
                                             $('#summernote').summernote();
                                         });
                                     </script>
-
+                                </div>
+                                <div class="form-group">
+                                    <label>Note</label>
+                                    <textarea id="summernote1" class="form-control"
+                                              name="note">{{$data->note}}</textarea>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#summernote1').summernote();
+                                        });
+                                    </script>
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control select2" name="status">
+                                        <option selected="selected">{{$data->status}}</option>
+                                        <option>Done</option>
+                                        <option>Not Done Yet</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Add Process</button>
+                                <button type="submit" class="btn btn-primary">Update Process</button>
                             </div>
                         </form>
                     </div>

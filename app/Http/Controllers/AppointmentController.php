@@ -62,7 +62,7 @@ class AppointmentController extends Controller
         $data->time=$request->input('time');
         $data->weight=$request->input('weight');
         $data->height=$request->input('height');
-        $data->mass_index=($data->weight/($data->height*$data->height));
+        $data->mass_index=(($data->weight*10000)/($data->height*$data->height));
         $data->pulse=$request->input('pulse');
         $data->ip=$_SERVER["REMOTE_ADDR"];
         $data->user_id=Auth::id();
@@ -105,21 +105,7 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment,$id)
     {
-        $data=Appointment::find($id);
-        $data->title=$request->input('title');
-        $data->keywords=$request->input('keywords');
-        $data->description=$request->input('description');
-        $data->status=$request->input('status');
-        $data->category_id=$request->input('category_id');
-        $data->detail=$request->input('detail');
-        if($request->file('image')!=null)
-        {
-            $data->image=Storage::putFile('images',$request->file('image'));
-        }
-        $data->price=$request->input('price');
-        $data->user_id=Auth::id();
-        $data->save();
-        return redirect()->route('user_appointments');
+        //
     }
 
     /**

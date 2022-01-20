@@ -1,5 +1,4 @@
 @extends('layouts.home')
-
 @section('title','Profile Settings')
 
 @section('description')
@@ -12,7 +11,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">User Appointments</h1></p>
+                    <h1  class="heading mb-3 text-white" style="margin-top: 150px">User Profile</h1>
                 </div>
             </div>
         </div>
@@ -28,7 +27,6 @@
                                 @include('profile.show')
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

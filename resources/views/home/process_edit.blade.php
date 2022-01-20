@@ -21,15 +21,7 @@
     <div class="site-section">
         <div class="container">
             <div class="row">
-
-                <div class="col-lg-2 mb-5 border border-2 border-gray-100">
-                    <ul>
-                        <li><h3>Menü</h3></li>
-
-                    </ul>
-                </div>
-
-                <div class="col-lg-10 ml-auto">
+                <div class="col-lg-12 ml-auto">
                     <div class="card shadow mb-4">
                         <form role="form" action="{{route('user_process_update',['id'=>$data->id])}}" method="post"
                               enctype="multipart/form-data">
@@ -61,6 +53,16 @@
                                     <script>
                                         $(document).ready(function () {
                                             $('#summernote').summernote();
+                                        });
+                                    </script>
+                                </div>
+                                <div class="form-group">
+                                    <label>Note</label>
+                                    <textarea id="summernote1" class="form-control"
+                                              name="note">{{$data->note}}</textarea>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#summernote1').summernote();
                                         });
                                     </script>
                                 </div>

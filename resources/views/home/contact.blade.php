@@ -16,8 +16,7 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-lg-6 align-self-center">
-                <h1 class="heading mb-6">Contact us</h1>
-                <p class="lead text-white">{{--$setting->contact--}}</p>
+                <h1 class="heading mb-6 text-white">Contact us</h1>
             </div>
         </div>
     </div>

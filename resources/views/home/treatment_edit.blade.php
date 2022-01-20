@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3">Our Services</h1></p>
+                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">Treatment Edit</h1></p>
                 </div>
             </div>
         </div>

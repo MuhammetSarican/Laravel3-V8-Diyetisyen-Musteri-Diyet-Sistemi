@@ -26,45 +26,37 @@
                 <div class="card-header">
 
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Edit Appointment</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Edit Process</h6>
                     </div>
                     <div class="card-body">
                         @include('home.message')
-                            <form role="form" action="{{route('admin_appointment_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                            <form role="form" action="{{route('admin_process_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Id</label>
-                                        <p class="form-control">{{$data->id}}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Order Id</label>
-                                        <p class="form-control">{{$data->order_id}}</p>
+                                        <p class="form-control text-left">{{$data->id}}</p>
                                     </div>
                                     <div class="form-group">
                                         <label>User Name</label>
-                                        <p class="form-control">{{$data->user->name}}</p>
+                                        <p class="form-control text-left">{{$data->user->name}}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Dietitian Name</label>
-                                        <p class="form-control">{{$data->order->treatment->user->name}}</p>
+                                        <label>Dietitian Id</label>
+                                        <p class="form-control text-left">{{$data->treatment->user->name}}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Weight</label>
-                                        <p class="form-control">{{$data->weight}}</p>
+                                        <label>Start Date</label>
+                                        <p class="form-control text-left">{{$data->start_date}}</p>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Height</label>
-                                        <p class="form-control">{{$data->height}}</p>
+                                        <label>End Date</label>
+                                        <p class="form-control text-left">{{$data->end_date}}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Mass İndex</label>
-                                        <p class="form-control">{{$data->mass_index}}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Pulse</label>
-                                        <p class="form-control">{{$data->pulse}}</p>
+                                        <label>Detail</label>
+                                        <extended class="form-control text-left">{!! $data->detail !!}</extended>
                                     </div>
                                     <div class="form-group">
                                         <label>Admin Note</label>
@@ -79,13 +71,11 @@
                                         <label>Status</label>
                                         <select class="form-control select2" name="status" style="width: 100%">
                                             <option selected="selected">{{$data->status}}</option>
-                                            <option>Accepted</option>
-                                            <option>Denied</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Update Appointment</button>
+                                    <button type="submit" class="btn btn-primary">Update Process</button>
                                 </div>
                             </form>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -103,7 +93,7 @@
                                     <td>{{$dl->id}}</td>
                                     <td>{!! $dl->note !!}</td>
                                     <td>{{$dl->status}}</td>
-                                    <td><a href="{{route('admin_appointment_edit',['id'=>$dl->id])}}"><img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
+                                    <td><a href="{{route('admin_process_edit',['id'=>$dl->id])}}"><img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
                                 </tr>
                             @endforeach
                             </tbody>

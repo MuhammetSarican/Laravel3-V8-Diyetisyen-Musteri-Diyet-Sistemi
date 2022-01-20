@@ -11,9 +11,8 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <h1 class="heading mb-3">Found About:</h1>
-                    <p class="heading mb-5">"{{$search}}"</p>
-                    <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+                    <h1 class="heading mb-3 text-white">Found About:</h1>
+                    <p class="heading mb-5 text-white">"{{$search}}"</p>
                 </div>
             </div>
         </div>

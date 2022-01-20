@@ -11,7 +11,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin_treatments')}}">Home</a> </li>
-                            <li class="breadcrumb-item active">treatment</li>
+                            <li class="breadcrumb-item active">Treatment</li>
                         </ol>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Treatments</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -50,7 +50,7 @@
                                         <td>
                                             {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($dl->category,$dl->category->title)}}
                                         </td>
-                                        <td>{{$dl->title}}</td>
+                                        <td><a href="{{route('treatment',['id'=>$dl->id])}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">{{$dl->title}}</a></td>
                                         <td>{{$dl->price}}</td>
                                         <td>
                                             @if($dl->image)

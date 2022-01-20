@@ -1,4 +1,6 @@
 @extends('layouts.home')
+@section('title','FAQ')
+
 @section('content')
     <div class="slide-item " style="background-image: url('{{asset('assets')}}/images/faq_4.jpg')">
 
@@ -7,7 +9,7 @@
         <div class="container">
             <div class="row">
             <div class="col-lg-12 align-self-center text-center">
-                <h1 class="heading mb-3">Frequently Asked Question's</h1>
+                <h1 class="heading mb-3 text-white">Frequently Asked Question's</h1>
 {{--                <p class="lead text-white mb-5">{{$setting->aboutus}}</p>--}}
 {{--                <p><a href="#" class="btn btn-primary">Get In Touch</a></p>--}}
             </div>

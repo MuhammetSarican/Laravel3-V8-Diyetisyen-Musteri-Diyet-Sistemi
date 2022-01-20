@@ -10,8 +10,7 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
         <div class="row align-items-center">
 
             <div class="col-6 col-xl-2">
-                <div class="mb-0 site-logo"><a href="{{route('home_index')}}"
-                                               class="mb-0">Diyetisyen: {{--{{\Illuminate\Support\Facades\Auth::user()->name}}--}}
+                <div class="mb-0 site-logo"><a href="{{route('home_index')}}" class="mb-0">DiyetSis
                         <span class="text-primary">.</span> </a></div>
             </div>
 
@@ -19,6 +18,21 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
                 <nav class="site-navigation position-relative text-right" role="navigation">
 
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li class="has-children">
+                            <a href="#" class="nav-link"><span class="icon-search"></span></a>
+                            <ul class="dropdown">
+                                <li class="has-children">
+                                    <form action="{{route('gettreatment')}}" method="post" class="nav-link">
+                                        @csrf
+                                        @livewire('search')
+                                        <br>
+                                        <button type="submit" class="btn btn-secondary" style="width: 100%"><span class="icon-search"></span></button>
+                                    </form>
+                                    @livewireScripts
+                                </li>
+                            </ul>
+                        </li>
+
                         <li><a href="{{route('home_index')}}" class="nav-link">Home</a></li>
 
                         <li class="has-children">
@@ -54,24 +68,39 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
 
                         {{--                        Login Section--}}
                         <li class="has-children">
-                            {{--                        <img class="img-profile rounded-circle" src="http://127.0.0.1:8000/adminassets/img/undraw_profile.svg">--}}
                             @auth
                                 <a href="#" class="nav-link">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                                 <ul class="dropdown">
                                     <li class="has-children">
                                         <a href="{{route('user_profile')}}" class="nav-link">Profile</a>
-                                        <a href="{{route('all_logout')}}" class="nav-link">Logout</a>
-                                        <?php
-                                        $userRoles = Auth::user()->role;
-                                        ?>
-                                        @if($userRoles=='admin' || $userRoles=='dietitian')
-                                            <a href="{{route('user_treatments')}}" class="nav-link">My Treatments</a>
-                                        @endif
-                                        <a href="{{route('myreviews')}}" class="nav-link">My Reviews</a>
-                                        <a href="{{route('user_orders')}}" class="nav-link">My Orders</a>
-                                        <a href="{{route('user_appointments')}}" class="nav-link">My Appointments</a>
-                                        <a href="{{route('user_processes')}}" class="nav-link">My Processes</a>
 
+                                        <a href="#" class="nav-link">Menu</a>
+                                        <ul class="dropdown">
+                                            <li class="has-children">
+                                                <?php
+                                                $userRoles = Auth::user()->role;
+                                                ?>
+                                                @if($userRoles=='admin' || $userRoles=='dietitian')
+                                                    <a href="{{route('user_treatments')}}" class="nav-link">My
+                                                        Treatments</a>
+                                                    <a href="{{route('user_processes')}}" class="nav-link">My
+                                                        Processes</a>
+                                                @endif
+                                                <a href="{{route('myreviews')}}" class="nav-link">My Reviews</a>
+                                                <a href="{{route('user_orders')}}" class="nav-link">My Orders</a>
+                                                <a href="{{route('user_appointments')}}" class="nav-link">My
+                                                    Appointments</a>
+                                                <?php
+                                                $userRoles = Auth::user()->role;
+                                                ?>
+                                                @if($userRoles=='user')
+                                                    <a href="{{route('user_processes_user')}}" class="nav-link">My
+                                                        Processes</a>
+                                                @endif
+                                            </li>
+                                        </ul>
+
+                                        <a href="{{route('all_logout')}}" class="nav-link">Logout</a>
                                     </li>
                                 </ul>
                             @endauth
@@ -86,24 +115,6 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
                                 </ul>
                             @endguest
                         </li>
-
-{{--                                                <form action="{{route('gettreatment')}}" method="post" class="nav-link">--}}
-{{--                                                    @csrf--}}
-{{--                                                    @livewire('search')--}}
-{{--                                                    <input type="submit">--}}
-{{--                                                </form>--}}
-{{--                                                @livewireScripts--}}
-
-{{--                                                <li class="has-children">--}}
-{{--                                                    <a href="#" class="nav-link">--}}
-{{--                                                        <span class="icon-search"></span></a>--}}
-{{--                                                    <ul class="dropdown-menu">--}}
-{{--                                                        <li class="has-children">--}}
-
-{{--                                                        </li>--}}
-{{--                                                    </ul>--}}
-{{--                                                </li>--}}
-
                         <li class="social"><a href="{{$setting->youtube}}" class="nav-link"><span
                                     class="icon-youtube"></span></a></li>
                         <li class="social"><a href="{{$setting->instagram}}" class="nav-link"><span
@@ -113,24 +124,8 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
                         <li class="social"><a href="{{$setting->twitter}}" class="nav-link"><span
                                     class="icon-twitter"></span></a></li>
                     </ul>
-                    {{--Search İcon--}}
-
-                    {{--                    Hide menu--}}
-                    {{--                    <div class="site-mobile-menu">--}}
-                    {{--                        <div class="site-mobile-menu-header">--}}
-                    {{--                            Close Icon--}}
-                    {{--                            <div class="site-mobile-menu-close mt-3">--}}
-                    {{--                                <span class="icon-close2 js-menu-toggle"></span>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-
-                    {{--                    </div>--}}
-                    {{--                    <div class="">--}}
-                    {{--                    </div>--}}
                 </nav>
             </div>
-
-
             <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
                 <a href="#" class="site-menu-toggle js-menu-toggle float-right">
                     <span class="icon-menu h3 text-white"></span>
@@ -139,5 +134,4 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
 
         </div>
     </div>
-
 </header>

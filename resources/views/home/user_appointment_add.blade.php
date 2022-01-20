@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title','User Appointment')
 
 
 @section('description')
@@ -12,7 +13,7 @@
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
                     <p style="margin-top: 150px">
-                    <h1 class="heading mb-3">Add Treatment</h1></p>
+                    <h1 class="heading mb-3 text-white">User Appointment</h1></p>
                 </div>
             </div>
         </div>
@@ -21,15 +22,7 @@
     <div class="site-section">
         <div class="container">
             <div class="row">
-
-                <div class="col-lg-2 mb-5 border border-2 border-gray-100">
-                    <ul>
-                        <li><h3>Menü</h3></li>
-
-                    </ul>
-                </div>
-
-                <div class="col-lg-10 ml-auto">
+                <div class="col-lg-12 ml-auto">
                     <div class="card shadow mb-4">
                         <form role="form" action="{{route('user_appointment_store')}}" method="post"
                               enctype="multipart/form-data">
@@ -71,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-danger text-white">Cancel</a>
+                                <a class="btn btn-danger text-white" href="{{route('user_appointments')}}">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Create Appointment</button>
                             </div>
                         </form>

@@ -49,11 +49,12 @@ Route::get('/categorytreatments/{id}', [\App\Http\Controllers\HomeController::cl
 Route::post('/gettreatment', [\App\Http\Controllers\HomeController::class, 'gettreatment'])->name('gettreatment');
 Route::get('/treatmentlist/{search}', [\App\Http\Controllers\HomeController::class, 'treatmentlist'])->name('treatmentlist');
 Route::post('/sendmessage', [\App\Http\Controllers\HomeController::class, 'sendmessage'])->name('home_sendmessage');
+Route::get('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('all_logout');
 
 
 Route::get('/admin/login', [\App\Http\Controllers\HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck', [\App\Http\Controllers\HomeController::class, 'logincheck'])->name('admin_logincheck');
-Route::get('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('all_logout');
+Route::get('/admin/logout', [\App\Http\Controllers\HomeController::class, 'adminlogout'])->name('admin_logout');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -118,6 +119,10 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::post('update/{id}', [\App\Http\Controllers\ProcessController::class, 'update'])->name('user_process_update');
         Route::get('delete/{id}', [\App\Http\Controllers\ProcessController::class, 'destroy'])->name('user_process_delete');
         Route::get('show', [\App\Http\Controllers\ProcessController::class, 'show'])->name('user_process_show');
+
+        Route::get('/user/', [\App\Http\Controllers\ProcessController::class, 'indexuser'])->name('user_processes_user');
+        Route::get('edit/user/{id}', [\App\Http\Controllers\ProcessController::class, 'edituser'])->name('user_process_user_edit');
+        Route::post('update/user/{id}', [\App\Http\Controllers\ProcessController::class, 'updateuser'])->name('user_process_user_update');
     });
 
 });
@@ -190,7 +195,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
         //Order
         Route::prefix('order')->group(function () {
-            Route::get('/', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin_orders');
+            Route::get('/{status}', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin_orders');
             Route::get('create/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'create'])->name('admin_order_add');
             Route::post('store/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'store'])->name('admin_order_store');
             Route::get('edit/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'edit'])->name('admin_order_edit');
@@ -224,6 +229,17 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::post('update/{id}', [\App\Http\Controllers\Admin\AppointmentController::class, 'update'])->name('admin_appointment_update');
             Route::get('delete/{id}', [\App\Http\Controllers\Admin\AppointmentController::class, 'destroy'])->name('admin_appointment_delete');
             Route::get('show', [\App\Http\Controllers\Admin\AppointmentController::class, 'show'])->name('admin_appointment_show');
+        });
+
+        //Process
+        Route::prefix('process')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Admin\ProcessController::class, 'index'])->name('admin_processes');
+            Route::get('create', [\App\Http\Controllers\Admin\ProcessController::class, 'create'])->name('admin_process_add');
+            Route::post('store', [\App\Http\Controllers\Admin\ProcessController::class, 'store'])->name('admin_process_store');
+            Route::get('edit/{id}', [\App\Http\Controllers\Admin\ProcessController::class, 'edit'])->name('admin_process_edit');
+            Route::post('update/{id}', [\App\Http\Controllers\Admin\ProcessController::class, 'update'])->name('admin_process_update');
+            Route::get('delete/{id}', [\App\Http\Controllers\Admin\ProcessController::class, 'destroy'])->name('admin_process_delete');
+            Route::get('show', [\App\Http\Controllers\Admin\ProcessController::class, 'show'])->name('admin_process_show');
         });
     });
 });

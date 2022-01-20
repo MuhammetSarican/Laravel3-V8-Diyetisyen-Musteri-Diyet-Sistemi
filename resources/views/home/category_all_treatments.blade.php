@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title','All Treatments')
 
 
 @section('description')
@@ -9,9 +10,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <h1 class="heading mb-3">All</h1>
-                    <p class="lead text-white mb-5">All</p>
-                    <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+                    <h1 class="heading mb-3 text-white">All Treatments</h1>
                 </div>
             </div>
         </div>

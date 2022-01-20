@@ -1,5 +1,4 @@
 @extends('layouts.home')
-
 @section('title',$data->title)
 
 @section('description')
@@ -11,9 +10,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <h1 class="heading mb-3">{{$data->title}}</h1>
-                    <p class="lead text-white mb-5">{{$data->description}}</p>
-                    <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+                    <h1 class="heading mb-3 text-white">{{$data->title}}</h1>
                 </div>
             </div>
         </div>

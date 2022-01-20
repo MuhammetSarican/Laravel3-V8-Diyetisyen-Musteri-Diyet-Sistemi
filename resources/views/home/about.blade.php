@@ -2,7 +2,6 @@
     $setting=\App\Http\Controllers\HomeController::getsetting();
 ?>
 @extends('layouts.home')
-
 @section('title',$setting->title)
 
 @section('description')
@@ -18,7 +17,6 @@
             <div class="col-lg-6 align-self-center">
                 <h1 class="heading mb-3">About Us</h1>
                 <p class="lead text-white mb-5">{{$setting->aboutus}}</p>
-                <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
             </div>
         </div>
     </div>

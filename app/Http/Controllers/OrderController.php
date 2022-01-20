@@ -37,7 +37,7 @@ class OrderController extends Controller
             'datalist'=>Treatment::find($id),
             'datalist2'=>User::all(),
         ];
-        return view('home.user_orders',$data);
+        return view('home.user_order_add',$data);
     }
 
     /**

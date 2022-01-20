@@ -46,12 +46,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Roles</label>
-                                <select class="form-control select2" name="role" style="width: 100%">
-                                    <option selected="selected">{{$data->role}}</option>
-                                    <option>admin</option>
-                                    <option>dietitian</option>
-                                    <option>user</option>
-                                </select>
+                                @foreach($data->roles as $row)
+                                    <p class="form-control">
+                                    {{$row->name}}
+                                    </p>
+                                @endforeach
                             </div>
                             <div class="form-group">
                                 <label>Image</label>
@@ -88,7 +87,11 @@
                                     @endif
                                 </td>
                                 <td>{{$dl->name}}</td>
-                                <td>{{$dl->role}}</td>
+                                <td>
+                                    @foreach($dl->roles as $row)
+                                                {{$row->name}},
+                                        @endforeach
+                                </td>
                                 <td><a href="{{route('admin_user_edit',['id'=>$dl->id])}}">
                                         <img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
                                 <td><a href="{{route('admin_user_delete',['id'=>$dl->id])}}"

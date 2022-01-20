@@ -1,26 +1,13 @@
 @extends('layouts.admin')
-@section('title','Treatment List')
+@section('title','User List')
 @section('content')
-    <!-- Content Wrapper -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h3>Treatment</h3>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('admin_treatments')}}">Home</a></li>
-                        <li class="breadcrumb-item active">treatment</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Main Content -->
     <div id="content">
         <div class="card">
             <div class="card-header">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{route('treatment',['id'=>$lst->id])}}" class="btn btn-primary" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">Show Treatment</a>
+                        <a href="{{route('treatment',['id'=>$sl->id])}}" class="btn btn-primary" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">Show Treatment</a>
                     </div>
                 </div>
                 <br>

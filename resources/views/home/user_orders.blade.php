@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title','User Orders')
 
 
 @section('description')
@@ -20,11 +21,7 @@
     <div class="site-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 mb-5 border border-2 border-gray-100">
-
-                </div>
-
-                <div class="col-lg-10 ml-auto">
+                <div class="col-lg-12 ml-auto">
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -33,8 +30,8 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
+                                        <th>Treatment Title</th>
                                         <th>Order Date</th>
-                                        <th>Finish Date</th>
                                         <th>Price</th>
                                         <th>Payment</th>
                                         <th>Status</th>
@@ -45,8 +42,8 @@
                                     @foreach($datalist as $dl)
                                         <tr>
                                             <td>{{$dl->id}}</td>
+                                            <td>{{$dl->treatment->title}}</td>
                                             <td>{{$dl->order_date}}</td>
-                                            <td>{{$dl->finish_date}}</td>
                                             <td>{{$dl->price}}</td>
                                             <td>{{$dl->payment}}</td>
                                             <td>{{$dl->status}}</td>

@@ -28,6 +28,7 @@
         </div>
     </div>
 
+    @include('home._slider')
 
     <div class="feature-v1">
         <div class="d-lg-flex align-items-center w-100">
@@ -64,6 +65,7 @@
         </div>
     </div>
 
+
     <div class="site-section">
         <div class="container">
             <div class="row mb-5 justify-content-center">
@@ -97,7 +99,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="counter-wrap text-center">
                         <strong class="counter d-block"><span class="number" data-number="8"></span></strong>
-                        <span>Treatment Number</span>
+                        <span>Treatment List</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
@@ -108,7 +110,7 @@
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="counter-wrap text-center">
-                        <strong class="counter d-block"><span class="number" data-number="2"></span></strong>
+                        <strong class="counter d-block"><span class="number" data-number="11"></span></strong>
                         <span>Reviews</span>
                     </div>
                 </div>
@@ -121,7 +123,6 @@
             </div>
         </div>
     </div>
-    @include('home._slider')
 
     <div class="site-section bg-light">
         <div class="container">
@@ -129,7 +130,7 @@
                 @foreach($review as $rew)
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
                     <div class="testimonial text-center">
-                        <img src="{{asset('assets')}}/images/person_1.jpg" alt="Image" class="img-fluid">
+                        <img src="{{asset('assets')}}/icons/chatting.png" alt="Image" class="img-fluid">
                         <blockquote>
                             <p class="text-center quote">{{$rew->subject}}</p>
                             <p class="quote">{{$rew->review}}</p>
@@ -142,122 +143,4 @@
         </div>
     </div>
 
-    <div class="site-section">
-        <div class="container">
-            <div class="row mb-5 justify-content-center">
-                <div class="col-7 text-center">
-                    <div class="heading">
-                        <h2 class="text-black">Other Opportunities</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, culpa.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="d-block d-flex custom-media algin-items-stretch">
-                        <div class="text text-left">
-                            <h3>You can live here with love</h3>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, commodi.</p>
-                            <p><a href="#" class="btn btn-outline-white">Learn More</a></p>
-                        </div>
-                        <div class="img-bg" style="background-image: url('{{asset('assets')}}/images/img_2.jpg')"></div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="d-block d-flex custom-media algin-items-stretch">
-                        <div class="text text-left">
-                            <h3>You can live here with love</h3>
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, commodi.</p>
-                            <p><a href="#" class="btn btn-outline-white">Learn More</a></p>
-                        </div>
-                        <div class="img-bg" style="background-image: url('{{asset('assets')}}/images/img_3.jpg')"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="site-section">
-        <div class="container">
-            <div class="row mb-5 justify-content-center">
-                <div class="col-7 text-center">
-                    <div class="heading">
-                        <h2 class="text-black">News &amp; Updates</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, culpa.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="blog-entry">
-                        <a href="#" class="d-block">
-                            <img src="{{asset('assets')}}/images/img_1.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="post-meta d-flex justify-content-center">
-              <span>
-                <span class="icon-calendar"></span>
-                <span>23 Jul</span>
-              </span>
-                            <span>
-                <span class="icon-user"></span>
-                <span>Admin</span>
-              </span>
-                            <span>
-                <span class="icon-comment"></span>
-                <span>2 Comments</span>
-              </span>
-                        </div>
-                        <h2><a href="#">We're Providing the Quality Care</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-entry">
-                        <a href="#" class="d-block">
-                            <img src="{{asset('assets')}}/images/img_2.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="post-meta d-flex justify-content-center">
-              <span>
-                <span class="icon-calendar"></span>
-                <span>23 Jul</span>
-              </span>
-                            <span>
-                <span class="icon-user"></span>
-                <span>Admin</span>
-              </span>
-                            <span>
-                <span class="icon-comment"></span>
-                <span>2 Comments</span>
-              </span>
-                        </div>
-                        <h2><a href="#">We're Providing the Quality Care</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-entry">
-                        <a href="#" class="d-block">
-                            <img src="{{asset('assets')}}/images/img_3.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="post-meta d-flex justify-content-center">
-              <span>
-                <span class="icon-calendar"></span>
-                <span>23 Jul</span>
-              </span>
-                            <span>
-                <span class="icon-user"></span>
-                <span>Admin</span>
-              </span>
-                            <span>
-                <span class="icon-comment"></span>
-                <span>2 Comments</span>
-              </span>
-                        </div>
-                        <h2><a href="#">We're Providing the Quality Care</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

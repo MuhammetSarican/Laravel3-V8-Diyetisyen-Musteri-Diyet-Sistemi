@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title','User Appointments')
+@section('title','User Processes')
 
 
 @section('description')
@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">User Appointments</h1></p>
+                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">User Processes</h1></p>
                 </div>
             </div>
         </div>
@@ -30,36 +30,33 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
                                         <th>Dietitian Name</th>
-                                        <th colspan="2">Appearance</th>
-                                        <th>Mass Index</th>
-                                        <th>Pulse</th>
+                                        <th>Treatment Title</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <th>Status</th>
-                                        <th>Delete</th>
+                                        <th colspan="2">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($datalist as $dl)
+                                    @foreach($dt as $dt)
+                                        @foreach($datalist as $dl)
                                         <tr>
                                             <td>{{$dl->id}}</td>
-                                            <td>{{$dl->date}}</td>
-                                            <td>{{$dl->time}}</td>
-                                            <td>{{$dl->order->treatment->user->name}}</td>
-                                            <td>{{$dl->height}}</td>
-                                            <td>{{$dl->weight}}</td>
-                                            <td>{{$dl->mass_index}}</td>
-                                            <td>{{$dl->pulse}}</td>
+                                            <td>{{$dt->name}}</td>
+                                            <td>{{$dl->treatment->title}}</td>
+                                            <td>{{$dl->start_date}}</td>
+                                            <td>{{$dl->end_date}}</td>
                                             <td>{{$dl->status}}</td>
-                                            <td><a href="{{route('user_appointment_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')"><img src="{{asset('adminassets/icons/trash.png')}}" height="25px"></a></td>
+                                            <td><a href="{{route('user_process_user_edit',['id'=>$dl->id])}}"><img src="{{asset('adminassets/icons/edit.png')}}" height="25px"></a></td>
                                         </tr>
+                                    @endforeach
                                     @endforeach
                                     </tbody>
                                 </table>
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <a href="{{route('user_appointment_add')}}" class="btn btn-black--hover btn-info">Make an Appointment</a>
+                                        <a href="{{route('user_process_add')}}" class="btn btn-black--hover btn-info">Create a Process</a>
                                     </div>
                                 </div>
                             </div>

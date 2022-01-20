@@ -30,10 +30,7 @@ class CategoryController extends Controller
     public function index()
     {
         $datalist=Category::with('children')->get();
- //       print_r($datalist);
-//        exit();
         return view('admin.category',['datalist'=>$datalist]);
-        //
     }
     /**
      * Show the form for creating a new resource.
@@ -43,8 +40,6 @@ class CategoryController extends Controller
     public function add()
     {
         $datalist=Category::with('children')->get();
-    //    print_r($datalist);
-      //  exit();
         return view('admin.category_add',['datalist'=>$datalist]);
         //
     }

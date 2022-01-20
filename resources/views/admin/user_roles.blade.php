@@ -43,7 +43,6 @@
                                    onclick="return confirm('Delete! Are you sure ?')">
                                     <img src="{{asset('adminassets/icons/trash.png')}}" height="25px"></a></p>
                         @endforeach
-
                     </div>
                     <div class="form-group">
                         <label>Add Role</label>

@@ -14,6 +14,7 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Dietitian Name</th>
                                     <th>User Name</th>
                                     <th>Date</th>
                                     <th>Time</th>
@@ -24,6 +25,7 @@
                                 @foreach($datalist as $dl)
                                     <tr>
                                         <td>{{$dl->id}}</td>
+                                        <td><a href="{{route('admin_user_show',['id'=>$dl->id])}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">{{$dl->order->treatment->user->name}}</a></td>
                                         <td><a href="{{route('admin_user_show',['id'=>$dl->id])}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">{{$dl->user->name}}</a></td>
                                         <td>{{$dl->date}}</td>
                                         <td>{{$dl->time}}</td>

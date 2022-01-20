@@ -7,6 +7,7 @@ use App\Models\Treatment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProcessController extends Controller
 {
@@ -106,5 +107,34 @@ class ProcessController extends Controller
     {
         Process::destroy($id);
         return redirect()->back();
+    }
+//User
+    public function indexuser()
+    {
+        $datalist=Process::where('user_id',Auth::id())->get();
+        $tr_id= DB::table('processes')
+            ->select('dietitian_id')
+            ->where('user_id', Auth::id())
+            ->first();
+        foreach ($tr_id as $idt)
+        {
+            $dietitian=User::where('id',$idt)->get();
+        }
+        return view('home.user_process_user',['datalist'=>$datalist,'dt'=>$dietitian]);
+    }
+
+    public function edituser(Process $process,$id)
+    {
+        $data=Process::find($id);
+        return view('home.process_edit_user',['data'=>$data]);
+    }
+
+    public function updateuser(Request $request, Process $process,$id)
+    {
+        $data=Process::find($id);
+        $data->note=$request->input('note');
+        $data->status=$request->input('status');
+        $data->save();
+        return redirect()->route('user_processes_user');
     }
 }

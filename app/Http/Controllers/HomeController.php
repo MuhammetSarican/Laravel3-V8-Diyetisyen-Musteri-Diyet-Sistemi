@@ -24,6 +24,7 @@ class HomeController extends Controller
     }
     public function countreview($id)
     {
+
         return Review::where('treatment_id',$id)->count();
     }
     public function avrgreview($id)
@@ -33,7 +34,7 @@ class HomeController extends Controller
     public function index()
     {
         $setting=Setting::first();
-        $slider=Treatment::Select('title','image','price')->get();
+        $slider=Treatment::Select('id','title','image','price')->get();
         $last=Treatment::Select('id','title','image','price','created_at')->limit(4)->orderByDesc('created_at')->inRandomOrder()->get();
         $review=Review::Select('id','user_id','subject','review','created_at')->limit(3)->orderByDesc('created_at')->inRandomOrder()->get();
 
@@ -144,7 +145,13 @@ class HomeController extends Controller
         Auth::logout();
         $veri->session()->invalidate();
         $veri->session()->regenerateToken();
-        return back();
+        return redirect()->route('home_index');
+    }
+    public function adminlogout(Request $veri){
+        Auth::logout();
+        $veri->session()->invalidate();
+        $veri->session()->regenerateToken();
+        return redirect()->route('admin_login');
     }
 }
 

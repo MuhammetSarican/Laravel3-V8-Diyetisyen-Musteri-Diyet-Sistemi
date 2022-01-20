@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title','Treatment Add')
 
 
 @section('description')
@@ -11,7 +12,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-6 align-self-center">
-                    <p style="margin-top: 150px"><h1 class="heading mb-3">Add Treatment</h1></p>
+                    <p style="margin-top: 150px"><h1 class="heading mb-3 text-white">Add Treatment</h1></p>
                 </div>
             </div>
         </div>

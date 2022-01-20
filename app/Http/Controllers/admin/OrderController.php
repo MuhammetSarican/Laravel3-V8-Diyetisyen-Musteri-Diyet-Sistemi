@@ -13,12 +13,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($status)
     {
-        $datalist=Orders::all();
-//               print_r($datalist);
-//       exit();
-        return view('admin.admin_order',['datalist'=>$datalist]);
+        $datalist=Orders::where('status',$status)->get();
+        return view('admin.order',['datalist'=>$datalist]);
     }
 
     /**
