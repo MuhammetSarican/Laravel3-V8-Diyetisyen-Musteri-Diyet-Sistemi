@@ -34,7 +34,7 @@ class HomeController extends Controller
     public function index()
     {
         $setting=Setting::first();
-        $slider=Treatment::Select('id','title','image','price')->get();
+        $slider=Treatment::all();
         $last=Treatment::Select('id','title','image','price','created_at')->limit(4)->orderByDesc('created_at')->inRandomOrder()->get();
         $review=Review::Select('id','user_id','subject','review','created_at')->limit(3)->orderByDesc('created_at')->inRandomOrder()->get();
 

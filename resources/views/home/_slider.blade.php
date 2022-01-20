@@ -12,9 +12,9 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-12">
                         <div class="section-heading">
-                            <h2 class="heading mb-3">You Should Try</h2>
-                            <h3>{{$sl->title}}</h3>
-                            <h4>Treatment</h4>
+                            <h1 class="heading mb-3">You Should Try</h1>
+                            <h2 class="text-primary">{{$sl->title}}</h2>
+                            <h3>Treatment</h3>
 
                             <p class="mb-5"></p>
                             <div class="row">
@@ -23,11 +23,9 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <ul class="list-unstyled ul-check primary">
-                                        <h5>Price: {{$sl->price}}&nbsp;$</h5><br>
-                                        <li>Voluptate delectus ipsa</li>
-                                        <li>Maiores quia aliquam</li>
-                                        <li>Consectetur adipisicing elit</li>
-                                        <li>Voluptate delectus ipsa</li>
+                                        <li>Category: <h6 class="text-primary">{{$sl->category->title}}</h6></li>
+                                        <li>Dietitian: <h6 class="text-primary">{{$sl->user->name}}</h6></li>
+                                        <li>Created At: <h6 class="text-primary">{{$sl->created_at}}</h6></li>
                                     </ul>
                                 </div>
                             </div>

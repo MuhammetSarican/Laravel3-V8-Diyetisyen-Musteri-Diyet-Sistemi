@@ -21,7 +21,7 @@
                 @foreach($datalist as $rs)
                     <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
                         <div class="service" style="height: 100%">
-                            <a href="{{route('treatment',['id'=>$rs->id])}}" class="d-block">
+                            <a href="{{route('treatment',['id'=>$rs->id])}}" class="d-block" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">
                                 <img src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}" alt="Image" style="height: 250px;object-fit: cover" class="img-bg img-fluid">
                             </a>
                             <div class="service-inner" style="height: 150px">

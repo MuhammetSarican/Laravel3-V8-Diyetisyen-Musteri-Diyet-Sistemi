@@ -16,13 +16,12 @@
     <div class="slide-item overlay" style="background-image: url('{{asset('assets')}}/images/img_5.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 align-self-center">
+                <div class="col-lg-6 align-self-center text-left">
                     <h1 class="heading mb-3">Diyetisyen<br>Müşteri Diyet<br>Sistemi</h1>
                     <p class="lead text-white mb-5">Üniversitelerin 4 yıllık beslenme ve diyetetik bölümünden mezun olan
                         kişilere diyetisyen denir. Diyetisyenler sadece kilo alıp vermek ile ilgilenmez aynı zamanda
                         besinlerin insan vücudundaki etkilerini de inceler. Besin analizlerini yaparak diyet ürünleri
                         geliştirebilir ya da kişilerin hastalıklarına uygun olarak diyet programı hazırlayabilir.</p>
-                    <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
                 </div>
             </div>
         </div>

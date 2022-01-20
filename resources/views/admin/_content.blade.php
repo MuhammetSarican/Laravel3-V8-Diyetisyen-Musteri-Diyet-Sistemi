@@ -221,6 +221,3 @@ $setting = \App\Http\Controllers\HomeController::getsetting();
     </div>
 
 </div>
-<!-- /.container-fluid -->
-
-<!-- End of Main Content -->
