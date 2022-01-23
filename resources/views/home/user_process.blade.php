@@ -30,7 +30,7 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Dietitian Id</th>
+                                        <th>Dietitian Name</th>
                                         <th>User Name</th>
                                         <th>Treatment Title</th>
                                         <th>Start Date</th>
@@ -43,7 +43,7 @@
                                     @foreach($datalist as $dl)
                                         <tr>
                                             <td>{{$dl->id}}</td>
-                                            <td>{{$dl->dietitian_id}}</td>
+                                            <td>{{$dl->treatment->user->name}}</td>
                                             <td>{{$dl->user->name}}</td>
                                             <td>{{$dl->treatment->title}}</td>
                                             <td>{{$dl->start_date}}</td>

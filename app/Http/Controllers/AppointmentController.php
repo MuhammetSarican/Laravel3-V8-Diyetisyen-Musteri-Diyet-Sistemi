@@ -21,8 +21,6 @@ class AppointmentController extends Controller
     public function index()
     {
         $datalist=Appointment::where('user_id',Auth::id())->get();
-//               print_r($datalist);
-//       exit();
         return view('home.user_appointments',['datalist'=>$datalist]);
     }
 
@@ -33,16 +31,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        $tr_id= DB::table('orders')
-            ->select('treatment_id')
-            ->where('user_id', Auth::id())
-            ->first();
-        foreach ($tr_id as $idt)
-        {
-            $datalist=Treatment::where('id',$idt)->get();
-        }
+        $datalist=Orders::where('user_id',Auth::id())->get();
         return view('home.user_appointment_add',['datalist'=>$datalist]);
-
     }
 
     /**
@@ -56,7 +46,7 @@ class AppointmentController extends Controller
         $rs=Orders::where('user_id',Auth::id())->first();
         $data=new Appointment;
         $total=$request->input('total');
-        $data->order_id=$rs->id;
+        $data->order_id=$request->input('order_id');
         $data->dietitian_id=$rs->dietitian_id;
         $data->date=$request->input('date');
         $data->time=$request->input('time');

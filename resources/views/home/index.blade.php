@@ -27,7 +27,13 @@
         </div>
     </div>
 
-    @include('home._slider')
+    <div class="row">
+        <div class="col-lg-12">
+        @include('home._slider')
+        </div>
+    </div>
+
+
 
     <div class="feature-v1">
         <div class="d-lg-flex align-items-center w-100">
@@ -78,14 +84,16 @@
                 @foreach($last as $lst)
                     <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
                         <div class="service">
-                            <a href="{{route('treatment',['id'=>$lst->id])}}" class="d-block" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">
-                                <img src="{{\Illuminate\Support\Facades\Storage::url($lst->image)}}" alt="Image" class="img-fluid" style="height: 250px;object-fit: cover">
+                            <a href="{{route('treatment',['id'=>$lst->id])}}" class="d-block"
+                               onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">
+                                <img src="{{\Illuminate\Support\Facades\Storage::url($lst->image)}}" alt="Image"
+                                     class="img-fluid" style="height: 250px;object-fit: cover">
                             </a>
                             <div class="service-inner" style="height: 150px">
                                 <h3>{{$lst->title}}</h3>
                                 <p>Date:{{$lst->created_at}}</p>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -127,16 +135,16 @@
         <div class="container">
             <div class="row">
                 @foreach($review as $rew)
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="testimonial text-center">
-                        <img src="{{asset('assets')}}/icons/chatting.png" alt="Image" class="img-fluid">
-                        <blockquote>
-                            <p class="text-center quote">{{$rew->subject}}</p>
-                            <p class="quote">{{$rew->review}}</p>
-                            <cite class="author">{{$rew->user->name}}, {{$rew->created_at}}</cite>
-                        </blockquote>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="testimonial text-center">
+                            <img src="{{asset('assets')}}/icons/chatting.png" alt="Image" class="img-fluid">
+                            <blockquote>
+                                <p class="text-center quote">{{$rew->subject}}</p>
+                                <p class="quote">{{$rew->review}}</p>
+                                <cite class="author">{{$rew->user->name}}, {{$rew->created_at}}</cite>
+                            </blockquote>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

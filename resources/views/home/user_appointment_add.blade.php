@@ -33,7 +33,7 @@
                                     <select class="form-control select2" name="order_id" style="width: 100%">
                                         @foreach($datalist as $rs)
                                             <option value="{{$rs->id}}">
-                                                {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
+                                                {{$rs->treatment->id}}-{{$rs->treatment->title}}_{{$rs->created_at}}
                                             </option>
                                         @endforeach
                                     </select>
